@@ -1,0 +1,5 @@
+ink		217	D9
+paper	218	DA
+flash	219	DB
+bright	220	DC
+border  231	E7

@@ -1,0 +1,12 @@
+uk.co.silentsoftware
+uk.co.silentsoftware.config
+uk.co.silentsoftware.core.attributestrategy
+uk.co.silentsoftware.core.colourstrategy
+uk.co.silentsoftware.core.converters.image
+uk.co.silentsoftware.core.converters.image.errordiffusionstrategy
+uk.co.silentsoftware.core.converters.image.orderedditherstrategy
+uk.co.silentsoftware.core.converters.spectrum
+uk.co.silentsoftware.core.converters.video
+uk.co.silentsoftware.core.helpers
+uk.co.silentsoftware.dispatcher
+uk.co.silentsoftware.ui

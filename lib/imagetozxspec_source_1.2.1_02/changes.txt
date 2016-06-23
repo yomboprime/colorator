@@ -1,0 +1,89 @@
+Image to ZX Spec Changes
+------------------------
+
+Version 1.2.1_02
+- Added forced half/full brightness attribute favouritism modes.
+- Changed dither preview font to bold dark grey for easier reading. 
+- Updated the start screen logo to be part Spectrumized.
+
+Version 1.2.1_01
+- Fixed thread safety issue which might occasionally cause missed 
+frames.
+- Removed some unnecessary code and shortened after conversion wait.
+- Updated text on BASIC loaders to describe what the delay does.
+- Added new BASIC Black Simple loader.
+- Updated readme text.
+
+Version 1.2.1
+- Improved UI drop list sizes in Windows.
+- Improved UI spacing on Ubuntu.
+- Small reorganisation of the Options tool bar items.
+- Improved readme.txt documenting the features.
+- Added improved black bordered buffered USR 0 (128K) tap 
+video/slideshow loader.
+
+Version 1.2
+- Added AVI and MOV video conversion (limited codecs however).
+- Added large performance improvements.
+- Added multi CPU work dispatcher engine.
+- Added threads per CPU option.
+- Added tap video/slideshow basic loader option.
+- Added buffered USR 0 (128K) tap video/slideshow loader.
+- Added FPS counter and option (using 2 second interval).
+- Added option to disable the WIP preview.
+- Added option to specify the video sample framerate.
+- Improved Low Error Atkinson dither to 25% error.
+- Improved colour code performance (reduced object overhead).
+- Memory settings changed (>512MB contiguous minimum).
+- Enabled Java aggressive heap mode for better memory use.
+
+Version 1.1
+- Added new Atrribute Favoritism feature to choose the colour set
+to use.
+- Added Dither Preview feature which displays previews with 
+different dithering algorithms (and takes advantage of multi core 
+processors).
+- Updated BASIC slideshow program with new warning to stop tape.
+- Main UI frame has a splash picture.
+- Minor bug fixes to do with colour choice
+- Memory usage increased for larger image conversion.
+
+Version 1.0.5
+- Added Bayer Ordered Dither (2x1)
+- Added Omega Ordered Dither (2x2)
+- Minor code changes including better error messages.
+- Remembering directory locations in the file dialogs
+- OpenGL hardware acceleration switch (disabled by default, source 
+code only adjustment required to enable it due to instability and
+currently only rendering display improvements).
+- Small UI changes
+
+Version 1.0.4
+- Added Ordered Dithering and a substantial number of new modes
+- Added options control for ordered dither intensity
+- Refactored some old code giving a small performance increase
+for screen export and error diffusion dithering
+- Replaced input folder option with file selector so individual
+files can be processed instead
+
+Version 1.0.3
+- New options dialog
+- New dithering options (including Low Error Atkinson)
+- New jpeg image export option
+- New pre-processing options such as brightness, contrast etc.
+- New image scaling options (proportional scaling)
+- Monochrome image mode with colour selection
+- Small code refactor, improvements in speed on some operations
+(speed is not a priority at the moment).
+
+Version 1.0.2 (Internal build only)
+- Numerous new dithering algorithms added
+- Small bug fixes
+
+Version 1.0.1
+- Removed averaging converter (not very good).
+- Added Half Colour Floyd-Steinberg converter.
+- Improved Full Colour Floyd-Steinberg converter (pre-ramps contrast
+for a better result).
+- Small bug fixes
+- Small amount of refactoring (work still in progress)
