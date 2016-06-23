@@ -1,7 +1,7 @@
  
 Colorator v1.15
 
- Copyright (C) 2010  Juan Jose Luna Espinosa juanjoluna@gmail.com
+ Copyright (C) 2010  Juan Jose Luna Espinosa
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
