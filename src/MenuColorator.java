@@ -319,7 +319,7 @@ public class MenuColorator implements ActionListener
     	JFrame frameAbout = new JFrame();
     	frameAbout.setTitle( "About Colorator" );
 
-    	String ruta = "../README.txt";
+    	String ruta = "../README.md";
     	ArrayList<String> texto = leerFicheroTexto( ruta );
     	StringBuffer sb = new StringBuffer();
     	for ( String s: texto ) {

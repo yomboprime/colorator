@@ -184,7 +184,7 @@ public class PanelToolbar extends JPanel implements ActionListener {
 
         
         
-        fileChooser = new JFileChooser("../images");
+        fileChooser = new JFileChooser("../examples");
 
     }
     

@@ -1,5 +1,5 @@
  
-Colorator v1.15
+Colorator release 116
 
  Copyright (C) 2010  Juan Jose Luna Espinosa
 

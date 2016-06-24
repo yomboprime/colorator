@@ -28,8 +28,8 @@ import java.awt.event.*;
 public class Colorator
 {
 
-	public static int SPRITES_ZXB = 0;
-	public static int SPRITES_ARDUINO = 1;	
+    public static int SPRITES_ZXB = 0;
+    public static int SPRITES_ARDUINO = 1;
 	
     public JFrame frameEditor;
 
@@ -112,7 +112,7 @@ public class Colorator
          * Captura de parametros
          */
         boolean guiOneFrame = true;
-        String fileToLoad = "../docs/demo-colorator.colorator";
+        String fileToLoad = "../examples/demo-colorator.colorator";
         int i = 0;
         while ( i < args.length ) {
             if ( args[i].compareTo("-gui")==0 ) {
