@@ -40,7 +40,7 @@ Editado bajo la licencia de software libre LGPL v3
 Ejemplos
 --------
 
-Imagen hecha por by Kel:
+Imagen hecha por Kel:
 
 ![Doppel](http://airsynth.es/archivos/colorator/examples/doppel.png)
 
