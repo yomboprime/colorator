@@ -61,6 +61,7 @@ Imagen original de MSX para importar (PNG, by Jon Cortázar):
 ![Escena feliz Original](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar-msx.png)
 
 Colorator:
+
 ![Escena feliz Colorator](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar.png)
 
 Cómo ejecutarlo
