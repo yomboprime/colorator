@@ -47,20 +47,29 @@ Released under LGPL v3 free software license
 Examples
 --------
 
+Image made by Kel:
+
+![Doppel](http://airsynth.es/archivos/colorator/examples/doppel.png)
+
+
 @airsynth:
-![turboesprit-colorator](images/demo-colorator.png)
 
-
-![turboesprit-colorator](images/doppel.png)
-
-Original imported MSX image (PNG, by Jon Cortázar):
-![Escena feliz](images/escena-feliz-jon-cortazar-msx.png)
-Colorator:
-![Escena feliz](images/escena-feliz-jon-cortazar.png)
+![Demo Colorator](http://airsynth.es/archivos/colorator/examples/demo-colorator.png)
 
 Comparison of image edited by my brother @airsynth using high resolution color:
-![turboesprit-colorator](images/turboesprit-colorator.png)
-![turboesprit](images/turboesprit-original.png)
+
+![Turbo Esprit Colorator](http://airsynth.es/archivos/colorator/examples/turboesprit-colorator.png)
+
+![Turbo Esprit Original](http://airsynth.es/archivos/colorator/examples/turboesprit-original.png)
+
+
+Original imported MSX image (PNG, by Jon Cortázar):
+
+![Escena feliz Original](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar-msx.png)
+
+Colorator:
+
+![Escena feliz Colorator](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar.png)
 
 How to run
 ----------

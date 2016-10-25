@@ -40,20 +40,28 @@ Editado bajo la licencia de software libre LGPL v3
 Ejemplos
 --------
 
+Imagen hecha por by Kel:
+
+![Doppel](http://airsynth.es/archivos/colorator/examples/doppel.png)
+
+
 @airsynth:
-![turboesprit-colorator](images/demo-colorator.png)
 
-
-![turboesprit-colorator](images/doppel.png)
-
-Imagen original de MSX para importar (PNG, by Jon Cortázar):
-![Escena feliz](images/escena-feliz-jon-cortazar-msx.png)
-Colorator:
-![Escena feliz](images/escena-feliz-jon-cortazar.png)
+![Demo Colorator](http://airsynth.es/archivos/colorator/examples/demo-colorator.png)
 
 Comparación de una imagen editada por mi hermano @airsynth usando alta resolución de color:
-![turboesprit-colorator](images/turboesprit-colorator.png)
-![turboesprit](images/turboesprit-original.png)
+
+![Turbo Esprit Colorator](http://airsynth.es/archivos/colorator/examples/turboesprit-colorator.png)
+
+![Turbo Esprit Original](http://airsynth.es/archivos/colorator/examples/turboesprit-original.png)
+
+
+Imagen original de MSX para importar (PNG, by Jon Cortázar):
+
+![Escena feliz Original](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar-msx.png)
+
+Colorator:
+![Escena feliz Colorator](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar.png)
 
 Cómo ejecutarlo
 ---------------
