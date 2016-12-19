@@ -144,7 +144,7 @@ Desarrollo
 
 Ficheros de desarrollo del proyecto en Eclipse Java incluidos.
 
-Historial del desaarrollo
+Historial del desarrollo
 -------------------------
 
 1.15
