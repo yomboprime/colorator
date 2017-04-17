@@ -135,7 +135,7 @@ Y en Windows:
 
 `copy screen1.tap + screen2.tap + screen3.tap slideshow.tap`
 
-Hay un pase de diapositivas demostrativo en el directorio "images.
+Hay un pase de diapositivas demostrativo en el directorio "images".
 
 Desarrollo
 -----------
