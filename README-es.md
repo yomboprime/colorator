@@ -3,7 +3,7 @@ Colorator v1.15
 
 [English version](https://github.com/yomboprime/colorator/blob/master/README.md)
 
-Copyright (C) 2010 [Juan José Luna Espinosa](https://yombo.org/) juanjoluna@gmail.com
+Copyright (C) 2010 [Juan José Luna Espinosa](https://yombo.org/) (juanjoluna@gmail.com)
 
 Sobre colorator
 ---------------
