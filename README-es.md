@@ -135,7 +135,7 @@ Y en Windows:
 
 `copy screen1.tap + screen2.tap + screen3.tap slideshow.tap`
 
-There is a "slideshow" TAP demostrating this in the "images" folder.
+Hay un pase de diapositivas demostrativo en el directorio "images.
 
 Desarrollo
 -----------
