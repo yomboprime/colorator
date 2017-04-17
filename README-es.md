@@ -17,8 +17,6 @@ El Spectrum tiene una limitación en el número de colores que puede mostrar en 
 
 En [este hilo](http://www.speccy.org/foro/viewtopic.php?f=6&t=1194) de los foros de www.speccy.org se puede ver como nació la idea. En resumen, [McLeod Ideafix](http://www.zxprojects.com/) programó una rutina para poder tener una franja central en la que se puede dibujar con una resolución de 2 colores por cada 8x1 pixels, en vez de los originales 8x8. La franja es de 112x192 píxels. Mi hermano me sugirió que empezase a hacer un editor de gráficos para ese modo, aunque el editor permite trabajar también con imágenes estándar de Spectrum.
 
-The idea was born on [this thread](http://www.speccy.org/foro/viewtopic.php?f=6&t=1194) (in Spanish) of the www.speccy.org forums. [McLeod Ideafix](http://www.zxprojects.com/) coded a routine which enables you to have a central screen zone in which you can draw with a resolution of 2 colors in each 8x1 pixels, instead of the original 8x8. The zone is 112x192 pixels wide. My brother told me to start making a graphical editor for that video mode, though the editor lets you also edit standard Spectrum images.
-
 Plataformas soportadas
 ---------------------
 
