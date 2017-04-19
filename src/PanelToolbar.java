@@ -17,9 +17,10 @@
  *  
  * Panel de herramientas izquierdo  
  */
+import java.util.Arrays;
+import java.io.File;
 import javax.swing.*;
 import javax.swing.filechooser.*;
-import java.awt.*;
 import java.awt.event.*;
 
 public class PanelToolbar extends JPanel implements ActionListener {
@@ -54,6 +55,7 @@ public class PanelToolbar extends JPanel implements ActionListener {
     FileNameExtensionFilter fcfilterTAP;
     FileNameExtensionFilter fcfilterTXT;
 
+    String coloratorFilename = "";
     
     public PanelToolbar(Colorator col) {
         super();
@@ -222,15 +224,13 @@ public class PanelToolbar extends JPanel implements ActionListener {
             if ( ! confirm ) {
                 return;
             }
-            fileChooser.setFileFilter( fcfilterCOLORATOR );
-            int result = fileChooser.showOpenDialog(colorator.panelEditor);
+            int result = this.abrirDialogoFichero( fcfilterCOLORATOR );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.cargar( fileChooser.getSelectedFile() );
             }
         }
         else if (e.getSource() == btnSave) {
-            fileChooser.setFileFilter( fcfilterCOLORATOR );
-            int result = fileChooser.showSaveDialog(colorator.panelEditor);
+            int result = this.abrirDialogoFichero( fcfilterCOLORATOR );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.salvar( fileChooser.getSelectedFile() );
             }
@@ -322,5 +322,29 @@ public class PanelToolbar extends JPanel implements ActionListener {
         if (btn != btnSelectBlock) {
         	btnSelectBlock.setSelected(false);
         }
+    }
+    
+    int abrirDialogoFichero( FileNameExtensionFilter filtro ) {
+
+        File f = fileChooser.getSelectedFile();
+
+        if ( f != null ) {
+
+            String name = f.getName();
+
+            int i = name.lastIndexOf( "." );
+            if ( i >= 0 && ! Arrays.asList( filtro.getExtensions() ).contains( name.substring( i + 1, name.length() ) ) ) {
+               name = name.substring( 0, i ) + "." + filtro.getExtensions()[ 0 ];
+            }
+
+            fileChooser.setSelectedFile( new File( f.getParent() + "/" + name ) );
+
+        }
+
+        fileChooser.setFileFilter( filtro );
+        
+        int result = fileChooser.showOpenDialog( colorator.panelEditor );
+
+        return result;
     }
 }

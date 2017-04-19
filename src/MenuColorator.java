@@ -378,103 +378,89 @@ public class MenuColorator implements ActionListener
             if ( ! confirm ) {
                 return;
             }
-            colorator.panelToolbar.fileChooser.setFileFilter( colorator.panelToolbar.fcfilterCOLORATOR );
-            int result = colorator.panelToolbar.fileChooser.showOpenDialog(colorator.panelToolbar);
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterCOLORATOR );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.cargar( colorator.panelToolbar.fileChooser.getSelectedFile() );
             }
         }
         else if (e.getSource() == opcionGuardar) {
-            colorator.panelToolbar.fileChooser.setFileFilter( colorator.panelToolbar.fcfilterCOLORATOR );
-            int result = colorator.panelToolbar.fileChooser.showSaveDialog(colorator.panelToolbar);
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterCOLORATOR );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.salvar( colorator.panelToolbar.fileChooser.getSelectedFile() );
             }
         }
         if (e.getSource() == opcionAbrirScr) {
-            colorator.panelToolbar.fileChooser.setFileFilter( colorator.panelToolbar.fcfilterSCR );
             boolean confirm = colorator.confirmUnsavedChangesDiscard();
             if ( ! confirm ) {
                 return;
             }
-            int result = colorator.panelToolbar.fileChooser.showOpenDialog(colorator.panelToolbar);
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterSCR );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.cargarScr( colorator.panelToolbar.fileChooser.getSelectedFile() );
             }
         }
         else if (e.getSource() == opcionGuardarScr) {
-            colorator.panelToolbar.fileChooser.setFileFilter( colorator.panelToolbar.fcfilterSCR );
-            int result = colorator.panelToolbar.fileChooser.showSaveDialog(colorator.panelToolbar);
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterSCR );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.salvarSCR( colorator.panelToolbar.fileChooser.getSelectedFile() );
             }
         }
         else if (e.getSource() == opcionGuardarAtributosAlta) {
-            colorator.panelToolbar.fileChooser.setFileFilter( colorator.panelToolbar.fcfilterCOLORATOR_ATTRS );
-            int result = colorator.panelToolbar.fileChooser.showSaveDialog(colorator.panelToolbar);
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterCOLORATOR_ATTRS );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.salvarAtributosAlta( colorator.panelToolbar.fileChooser.getSelectedFile() );
             }
         }
         else if (e.getSource() == opcionAbrirAtributosAlta) {
-            colorator.panelToolbar.fileChooser.setFileFilter( colorator.panelToolbar.fcfilterCOLORATOR_ATTRS );
-            int result = colorator.panelToolbar.fileChooser.showOpenDialog(colorator.panelToolbar);
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterCOLORATOR_ATTRS );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.cargarAtributosAlta( colorator.panelToolbar.fileChooser.getSelectedFile() );
             }
         }
         else if (e.getSource() == opcionImportarSoloHI) {
-            colorator.panelToolbar.fileChooser.setFileFilter( colorator.panelToolbar.fcfilterPNG_JPG_GIF );
-            int result = colorator.panelToolbar.fileChooser.showOpenDialog(colorator.panelToolbar);
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterPNG_JPG_GIF );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.importarImagenSoloHI( colorator.panelToolbar.fileChooser.getSelectedFile() );
             }
         }
         else if (e.getSource() == opcionImportarEntera) {
-            colorator.panelToolbar.fileChooser.setFileFilter( colorator.panelToolbar.fcfilterPNG_JPG_GIF );
-            int result = colorator.panelToolbar.fileChooser.showOpenDialog(colorator.panelToolbar);
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterPNG_JPG_GIF );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.importarImagenEntera( colorator.panelToolbar.fileChooser.getSelectedFile() );
             }
         }
         else if (e.getSource() == opcionExportarImagen) {
-            colorator.panelToolbar.fileChooser.setFileFilter( colorator.panelToolbar.fcfilterPNG );
-            int result = colorator.panelToolbar.fileChooser.showSaveDialog(colorator.panelToolbar);
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterPNG );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.exportarImagenEntera( colorator.panelToolbar.fileChooser.getSelectedFile() );
             }
         }
         else if (e.getSource() == opcionExportarTAP) {
-            colorator.panelToolbar.fileChooser.setFileFilter( colorator.panelToolbar.fcfilterTAP );
-            int result = colorator.panelToolbar.fileChooser.showSaveDialog(colorator.panelToolbar);
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterTAP );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.exportarFicheroTAP( colorator.panelToolbar.fileChooser.getSelectedFile() );
             }
         }
         else if (e.getSource() == opcionExportarSpritesZXB1x1) {
-            colorator.panelToolbar.fileChooser.setFileFilter( colorator.panelToolbar.fcfilterTXT );
-            int result = colorator.panelToolbar.fileChooser.showSaveDialog(colorator.panelToolbar);
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterTXT );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.exportarSprites1x1( colorator.panelToolbar.fileChooser.getSelectedFile(), Colorator.SPRITES_ZXB );
             }
         }
         else if (e.getSource() == opcionExportarSpritesZXB2x2) {
-            colorator.panelToolbar.fileChooser.setFileFilter( colorator.panelToolbar.fcfilterTXT );
-            int result = colorator.panelToolbar.fileChooser.showSaveDialog(colorator.panelToolbar);
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterTXT );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.exportarSprites2x2( colorator.panelToolbar.fileChooser.getSelectedFile(), Colorator.SPRITES_ZXB );
             }
         }
         else if (e.getSource() == opcionExportarSpritesZXBSeleccion) {
-            colorator.panelToolbar.fileChooser.setFileFilter( colorator.panelToolbar.fcfilterTXT );
-            int result = colorator.panelToolbar.fileChooser.showSaveDialog(colorator.panelToolbar);
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterTXT );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.exportarSpritesSeleccion( colorator.panelToolbar.fileChooser.getSelectedFile(), Colorator.SPRITES_ZXB );
             }
         }
         else if (e.getSource() == opcionExportarSpritesArduino2x2) {
-            colorator.panelToolbar.fileChooser.setFileFilter( colorator.panelToolbar.fcfilterTXT );
-            int result = colorator.panelToolbar.fileChooser.showSaveDialog(colorator.panelToolbar);
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterTXT );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.exportarSprites2x2( colorator.panelToolbar.fileChooser.getSelectedFile(), Colorator.SPRITES_ARDUINO );
             }
