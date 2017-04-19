@@ -172,10 +172,6 @@ Historial del desarrollo
 
 1.1
 
-- Added TAP export with BASIC loader (SCR) or BASIC loader plus assembler routine for displaying hi-color images.
-- Now the attribute pen inverts ink and paper by clicking with right mouse button.
-- Added application icon.
-
 - Añadida exportación a formato TAP con cargador BASIC (SCR) o el cargador BASIC mas la rutina en ensamblador para mostrar el hi-color
 - Ahora el pincel de atributo invierte tinta y papel haciendo clic con el botón derecho del ratón.
 - Añadido icono de la aplicación.
