@@ -9,7 +9,7 @@ Copyright (C) 2010 [Juan José Luna Espinosa](https://yombo.org/) (juanjoluna@gm
 ------
 
 1. [About Colorator](#about-colorator)
-2. [El porqué de este editor](#why-this-editor)
+2. [Why this editor](#why-this-editor)
 3. [Supported platforms](#supported-platforms)
 4. [Features](#features)
 5. [Download](#download)
