@@ -32,6 +32,8 @@ El Spectrum tiene una limitación en el número de colores que puede mostrar en 
 
 En [este hilo](http://www.speccy.org/foro/viewtopic.php?f=6&t=1194) de los foros de www.speccy.org se puede ver como nació la idea. En resumen, [McLeod Ideafix](https://twitter.com/zxprojects) programó una rutina para poder tener una franja central en la que se puede dibujar con una resolución de 2 colores por cada 8x1 pixels, en vez de los originales 8x8. La franja es de 112x192 píxels. El ordenador tiene que dedicar muchos recursos a los gráficos y la cantidad de memoria reservada para el color se cuadriplica, pero el resultado es espectacular. También está inspirado en unos artículos de la famosa revista MicroHobby, (números [143](http://www.microhobby.org/numero142.htm) (página 18) y [183](http://www.microhobby.org/numero183.htm) (página 42) . Mi hermano me sugirió que empezase a hacer un editor de gráficos para ese modo, aunque el editor permite trabajar también con imágenes estándar de Spectrum.
 
+En [Va de Retro](http://www.va-de-retro.com/foros/viewtopic.php?f=62&t=1998) se pudo seguir también una conversación sobre cómo se crea una imagen.
+
 Plataformas soportadas
 ----------------------
 

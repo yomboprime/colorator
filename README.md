@@ -31,6 +31,8 @@ The Spectrum has a limitation in the number of colors available in a given "char
 
 The idea was born on [this thread](http://www.speccy.org/foro/viewtopic.php?f=6&t=1194) (in Spanish) of the www.speccy.org forums. [McLeod Ideafix](https://twitter.com/zxprojects) coded a routine which enables you to have a central screen zone in which you can draw with a resolution of 2 colors in each 8x1 pixels, instead of the original 8x8. The zone is 112x192 pixels wide. The computer must increase a lot the consumed resources and the amount of memory reserved for graphics gets multiplied by four, but the results are impressive. It's also inpired on some articles of the famous Spanish magazine MicroHobby, (issues [143](http://www.microhobby.org/numero142.htm) (page 18) and [183](http://www.microhobby.org/numero183.htm) (page 42). My brother told me to start making a graphical editor for that video mode, though the editor lets you also edit standard Spectrum images.
 
+On [Va de Retro](http://www.va-de-retro.com/foros/viewtopic.php?f=62&t=1998) forum there was also a conversation about how to create an image.
+
 Supported platforms
 -------------------
 
