@@ -94,13 +94,19 @@ public class PanelEditor extends JComponent implements MouseMotionListener, Mous
     	}
     }
     
-    public void setZoom(int zoom) {
+    public boolean setZoom(int zoom) {
         if ( zoom < 1 ) {
             zoom = 1;
         }
+
         if ( zoom > MAX_ZOOM ) {
             zoom = MAX_ZOOM;
         }
+
+        if ( zoom == this.zoom ) {
+            return false;
+        }
+        
         this.zoom = zoom;
         
         Dimension d = new Dimension(Pantalla.BITMAP_X * zoom,
@@ -110,6 +116,8 @@ public class PanelEditor extends JComponent implements MouseMotionListener, Mous
         revalidate();
         
         repaint();
+        
+        return true;
     }
     
     public void zoomIn() {
@@ -122,16 +130,21 @@ public class PanelEditor extends JComponent implements MouseMotionListener, Mous
 
     public void zoomIn( int x, int y ) {
 
-        setZoom( zoom + 1 );
+        if ( setZoom( zoom + 1 ) ) {
 
-        centrarVista( x, y );
+            centrarVista( x, y, 1 );
+            
+        }
+
     }
 
     public void zoomOut( int x, int y ) {
 
-        setZoom( zoom - 1 );
+        if ( setZoom( zoom - 1 ) ) {
 
-        centrarVista( x, y );
+            centrarVista( x, y, - 1 );
+            
+        }
 
     }
 
@@ -290,7 +303,7 @@ public class PanelEditor extends JComponent implements MouseMotionListener, Mous
         }
     }
     
-	@Override
+    @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         update(g);
@@ -306,32 +319,39 @@ public class PanelEditor extends JComponent implements MouseMotionListener, Mous
         });
     }
 
-	public void mueveVista( int dx, int dy ) {
+    public void mueveVista( int dx, int dy ) {
 		
-		// Mueve la vista en coordenadas de componente
+	// Mueve la vista en coordenadas de componente
 		
-		Rectangle r = colorator.scrollPane.getViewport().getViewRect();
-		rect.setBounds( (int)r.getX() + dx, (int)r.getY() + dy, (int)r.getWidth(), (int)r.getHeight() );
+	Rectangle r = colorator.scrollPane.getViewport().getViewRect();
+	rect.setBounds( (int)r.getX() + dx, (int)r.getY() + dy, (int)r.getWidth(), (int)r.getHeight() );
 		
-		colorator.panelEditor.scrollRectToVisible( rect );
+	colorator.panelEditor.scrollRectToVisible( rect );
 
-	}
+    }
 
-    private void centrarVista( int x, int y ) {
-    	
-    	// Esta funcion centra la vista en x, y (del raton)
-    	
-    	Rectangle r = colorator.scrollPane.getViewport().getViewRect();
+    private void centrarVista( int x, int y, int zoomIncrement ) {
 
-    	double dx = - ( r.getX() + r.getWidth() * 0.5d - x );
-    	double dy = - ( r.getY() + r.getHeight() * 0.5d - y );
+        // Esta funcion centra la vista en x, y (del raton)
+        Rectangle r = colorator.scrollPane.getViewport().getViewRect();
+        
+        int prevZoom = Math.min( MAX_ZOOM, Math.max( 1, ( zoom - zoomIncrement ) ) );
 
-    	mueveVista( (int)dx, (int)dy );
+        double multiplier = ((double)zoom) / prevZoom;
 
-//    	System.out.println( "x,y:" + x+ ", " + y );
-//    	System.out.println( "Vista despl.:" + ((int)dx)+ ", " + ((int)dy) );
-//    	System.out.println("Rect centrar: " + r.getX() + ", " + r.getY() + ", (" + r.getWidth() + ", " + r.getHeight() + ")" );
+        double dx = 0;
+        double dy = 0;
 
+        dx = ( x - r.getX() );
+        dy = ( y - r.getY() );
+ 
+        int x0 = (int)( ( r.getX() + dx ) * multiplier - dx );
+        int y0 = (int)( ( r.getY() + dy ) * multiplier - dy );
+ 
+        r.setBounds( x0, y0, (int) ( r.getWidth() ), (int) ( r.getHeight() ) );
+        colorator.panelEditor.scrollRectToVisible( r );
+        
+        
     }
 
 }
