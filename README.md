@@ -1,4 +1,4 @@
-Colorator v1.15
+Colorator v1.16
 ===============
 
 [Versión en español](https://github.com/yomboprime/colorator/blob/master/README-es.md)
