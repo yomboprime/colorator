@@ -5,31 +5,36 @@ Colorator v1.16
 
 Copyright (C) 2010 [Juan José Luna Espinosa](https://yombo.org/) (juanjoluna@gmail.com)
 
-License
--------
+Índice
+------
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+1. [About Colorator](#about-colorator)
+2. [El porqué de este editor](#why-this-editor)
+3. [Supported platforms](#supported-platforms)
+4. [Features](#features)
+5. [Download](#download)
+6. [Examples](#examples)
+7. [How to run](#how-to-run)
+8. [Usage](#usage)
+9. [Development](#development)
+10. [Development Log](#development-log)
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+About Colorator
+---------------
 
-You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
- 
-About
------
-
-Colorator is a graphical editor for Sinclair ZX Spectrum images, regular ones and also hi-color resolution for the assembler routine by [McLeod Ideafix](http://www.zxprojects.com/).
+Colorator is a graphical editor for Sinclair ZX Spectrum images, regular ones and also hi-color resolution for the assembler routine by [McLeod Ideafix](https://twitter.com/zxprojects).
 
 Why this editor
 ---------------
 
-The Spectrum has a limitation in the number of colors available in a given "character" (a 8x8 pixel cell). The phenomenon is known as [attribute clash](https://en.wikipedia.org/wiki/Attribute_clash). This program is an editor for the images stored in the format for the assembler routine created by [McLeod Ideafix](http://www.zxprojects.com/), which breaks this limit by altering the graphics memory zone right when the image is being sent to TV.
+The Spectrum has a limitation in the number of colors available in a given "character" (a 8x8 pixel cell). The phenomenon is known as [attribute clash](https://en.wikipedia.org/wiki/Attribute_clash). This program is an editor for the images stored in the format for the assembler routine created by [McLeod Ideafix](https://twitter.com/zxprojects), which breaks this limit by altering the graphics memory zone right when the image is being sent to TV.
 
-The idea was born on [this thread](http://www.speccy.org/foro/viewtopic.php?f=6&t=1194) (in Spanish) of the www.speccy.org forums. [McLeod Ideafix](http://www.zxprojects.com/) coded a routine which enables you to have a central screen zone in which you can draw with a resolution of 2 colors in each 8x1 pixels, instead of the original 8x8. The zone is 112x192 pixels wide. The computer must increase a lot the consumed resources and the amount of memory reserved for graphics gets multiplied by four, but the results are impressive. It's also inpired on some articles of the famous Spanish magazine MicroHobby, (issues [143](http://www.microhobby.org/numero142.htm) (page 18) and [183](http://www.microhobby.org/numero183.htm) (page 42). My brother told me to start making a graphical editor for that video mode, though the editor lets you also edit standard Spectrum images.
+The idea was born on [this thread](http://www.speccy.org/foro/viewtopic.php?f=6&t=1194) (in Spanish) of the www.speccy.org forums. [McLeod Ideafix](https://twitter.com/zxprojects) coded a routine which enables you to have a central screen zone in which you can draw with a resolution of 2 colors in each 8x1 pixels, instead of the original 8x8. The zone is 112x192 pixels wide. The computer must increase a lot the consumed resources and the amount of memory reserved for graphics gets multiplied by four, but the results are impressive. It's also inpired on some articles of the famous Spanish magazine MicroHobby, (issues [143](http://www.microhobby.org/numero142.htm) (page 18) and [183](http://www.microhobby.org/numero183.htm) (page 42). My brother told me to start making a graphical editor for that video mode, though the editor lets you also edit standard Spectrum images.
 
 Supported platforms
 -------------------
 
-Java (at least 1.5), that is, GNU/Linux, Windows, Mac OS X and others.
+Java (at least 1.5), that is, GNU/Linux, Windows, macOS and others.
 
 Features
 --------
@@ -49,6 +54,8 @@ Released under LGPL v3 free software license
 Examples
 --------
 
+![La Mulana MSX](http://airsynth.es/archivos/colorator/examples/colorator-pantallazo-la-mulana.png)
+
 Kel:
 
 ![Doppel](http://airsynth.es/archivos/colorator/examples/doppel2.png)
@@ -59,17 +66,17 @@ Kel:
 
 ![Escena feliz Original](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar-msx.png)
 
-@airsynth:
+[@airsynth]():
+
+![La Mulana Colorator](http://airsynth.es/archivos/colorator/examples/la-mulana.png)
+
+![La Mulana MSX](http://airsynth.es/archivos/colorator/examples/la-mulana-msx.png)
 
 ![Demo Colorator](http://airsynth.es/archivos/colorator/examples/demo-colorator.png)
 
 ![Turbo Esprit Colorator](http://airsynth.es/archivos/colorator/examples/turboesprit-colorator.png)
 
 ![Turbo Esprit Original](http://airsynth.es/archivos/colorator/examples/turboesprit-original.png)
-
-![La Mulana Colorator](http://airsynth.es/archivos/colorator/examples/la-mulana.png)
-
-![La Mulana MSX](http://airsynth.es/archivos/colorator/examples/la-mulana-msx.png)
 
 
 How to run
@@ -151,6 +158,7 @@ Development Log
 
 - Better zoom handling.
 - Added La Mulana example.
+- Some documentation improvements.
 
 1.15
 
@@ -166,3 +174,13 @@ Development Log
 1.0
 
 - First release
+
+
+License
+-------
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
