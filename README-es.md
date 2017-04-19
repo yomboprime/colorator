@@ -1,26 +1,43 @@
-Colorator v1.15
+Colorator v1.16
 ===============
 
 [English version](https://github.com/yomboprime/colorator/blob/master/README.md)
 
 Copyright (C) 2010 [Juan José Luna Espinosa](https://yombo.org/) (juanjoluna@gmail.com)
 
-Sobre colorator
+
+Índice
+------
+
+1. [Sobre Colorator](#sobre-colorator)
+2. [El porqué de este editor](#el-porqué-de-este-editor)
+3. [Plataformas soportadas](#plataformas-soportadas)
+4. [Características](#características)
+5. [Descarga](#descarga)
+6. [Ejemplos](#ejemplos)
+7. [Cómo ejecutarlo](#cómo-ejecutarlo)
+8. [Uso](#uso)
+9. [Desarrollo](#desarrollo)
+10. [Historial del desarrollo](#historial-del-desarrollo)
+
+Sobre Colorator
 ---------------
 
-Colorator es un editor gráfico para imágenes del Sinclair ZX Spectrum, las estándar y también las de alta resolución de color (hi-color) para la rutina en ensamblador de [McLeod Ideafix](http://www.zxprojects.com/).
+Colorator es un editor gráfico para imágenes del Sinclair ZX Spectrum, las estándar y también las de alta resolución de color (hi-color) para la rutina en ensamblador de [McLeod Ideafix](https://twitter.com/zxprojects).
 
 El porqué de este editor
 ------------------------
 
-El Spectrum tiene una limitación en el número de colores que puede mostrar en cada "caracter" o celda de 8x8 pixels. El fenómeno se conoce como "mezcla de colores" o [attribute clash](https://en.wikipedia.org/wiki/Attribute_clash). Este programa es un editor para imágenes que se encuentren en el formato de la rutina que creó [McLeod Ideafix](http://www.zxprojects.com/), que rompe con este límite alterando la zona de de memoria dedicada a los gráficos justo en el momento en que están siendo enviados a la televisión.
+El Spectrum tiene una limitación en el número de colores que puede mostrar en cada "caracter" o celda de 8x8 pixels. El fenómeno se conoce como "mezcla de colores" o [attribute clash](https://en.wikipedia.org/wiki/Attribute_clash). Este programa es un editor para imágenes que se encuentren en el formato de la rutina que creó [McLeod Ideafix](https://twitter.com/zxprojects), que rompe con este límite alterando la zona de de memoria dedicada a los gráficos justo en el momento en que están siendo enviados a la televisión.
 
-En [este hilo](http://www.speccy.org/foro/viewtopic.php?f=6&t=1194) de los foros de www.speccy.org se puede ver como nació la idea. En resumen, [McLeod Ideafix](http://www.zxprojects.com/) programó una rutina para poder tener una franja central en la que se puede dibujar con una resolución de 2 colores por cada 8x1 pixels, en vez de los originales 8x8. La franja es de 112x192 píxels. El ordenador tiene que dedicar muchos recursos a los gráficos y la cantidad de memoria reservada para el color se cuadriplica, pero el resultado es espectacular. También está inspirado en unos artículos de la famosa revista MicroHobby, (números [143](http://www.microhobby.org/numero142.htm) (página 18) y [183](http://www.microhobby.org/numero183.htm) (página 42) . Mi hermano me sugirió que empezase a hacer un editor de gráficos para ese modo, aunque el editor permite trabajar también con imágenes estándar de Spectrum.
+En [este hilo](http://www.speccy.org/foro/viewtopic.php?f=6&t=1194) de los foros de www.speccy.org se puede ver como nació la idea. En resumen, [McLeod Ideafix](https://twitter.com/zxprojects) programó una rutina para poder tener una franja central en la que se puede dibujar con una resolución de 2 colores por cada 8x1 pixels, en vez de los originales 8x8. La franja es de 112x192 píxels. El ordenador tiene que dedicar muchos recursos a los gráficos y la cantidad de memoria reservada para el color se cuadriplica, pero el resultado es espectacular. También está inspirado en unos artículos de la famosa revista MicroHobby, (números [143](http://www.microhobby.org/numero142.htm) (página 18) y [183](http://www.microhobby.org/numero183.htm) (página 42) . Mi hermano me sugirió que empezase a hacer un editor de gráficos para ese modo, aunque el editor permite trabajar también con imágenes estándar de Spectrum.
+
+En [Va de Retro](http://www.va-de-retro.com/foros/viewtopic.php?f=62&t=1998) se pudo seguir también una conversación sobre cómo se crea una imagen.
 
 Plataformas soportadas
----------------------
+----------------------
 
-Java (al menos 1.5), o sea, GNU/Linux, Windows, Mac OS X y otros.
+Java (al menos 1.5), o sea, GNU/Linux, Windows, macOS y otros.
 
 Características
 ---------------
@@ -40,29 +57,28 @@ Editado bajo la licencia de software libre LGPL v3
 Ejemplos
 --------
 
-Imagen hecha por Kel:
+Kel:
 
-![Doppel](http://airsynth.es/archivos/colorator/examples/doppel.png)
+![Doppel](http://airsynth.es/archivos/colorator/examples/doppel2.png)
 
+[Jon Cortázar](https://twitter.com/jon_cortazar):
 
-@airsynth:
+![Escena feliz Colorator](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar.png)
+
+![Escena feliz Original](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar-msx.png)
+
+[@airsynth]():
 
 ![Demo Colorator](http://airsynth.es/archivos/colorator/examples/demo-colorator.png)
-
-Comparación de una imagen editada por mi hermano @airsynth usando alta resolución de color:
 
 ![Turbo Esprit Colorator](http://airsynth.es/archivos/colorator/examples/turboesprit-colorator.png)
 
 ![Turbo Esprit Original](http://airsynth.es/archivos/colorator/examples/turboesprit-original.png)
 
+![La Mulana Colorator](http://airsynth.es/archivos/colorator/examples/la-mulana.png)
 
-Imagen original de MSX para importar (PNG, by Jon Cortázar):
+![La Mulana MSX](http://airsynth.es/archivos/colorator/examples/la-mulana-msx.png)
 
-![Escena feliz Original](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar-msx.png)
-
-Colorator:
-
-![Escena feliz Colorator](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar.png)
 
 Cómo ejecutarlo
 ---------------
@@ -145,16 +161,18 @@ Ficheros de desarrollo del proyecto en Eclipse Java incluidos.
 Historial del desarrollo
 -------------------------
 
+1.16 (2017-04-19)
+
+- Mejor manejo del zoom.
+- Añadido el ejemplo La Mulana.
+- Algunas mejoras en la documentación.
+
 1.15
 
 - El cargador del TAP exportado ahora borra la pantalla con los atributos seleccionados en el editor.
 - Corregido el readme y el número de versión.
 
 1.1
-
-- Added TAP export with BASIC loader (SCR) or BASIC loader plus assembler routine for displaying hi-color images.
-- Now the attribute pen inverts ink and paper by clicking with right mouse button.
-- Added application icon.
 
 - Añadida exportación a formato TAP con cargador BASIC (SCR) o el cargador BASIC mas la rutina en ensamblador para mostrar el hi-color
 - Ahora el pincel de atributo invierte tinta y papel haciendo clic con el botón derecho del ratón.
@@ -163,3 +181,13 @@ Historial del desarrollo
 1.0
 
 - Primera versión
+
+
+License
+-------
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
