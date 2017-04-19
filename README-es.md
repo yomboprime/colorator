@@ -10,15 +10,15 @@ Copyright (C) 2010 [Juan José Luna Espinosa](https://yombo.org/) (juanjoluna@gm
 ------
 
 1. [Sobre Colorator](#sobre-colorator)
-2. [El porqué de este editor](#el-porque-de-este-editor)
+2. [El porqué de este editor](#el-porqué-de-este-editor)
 3. [Plataformas soportadas](#plataformas-soportadas)
-4. [Características](#caracteristicas)
+4. [Características](#características)
 5. [Descarga](#descarga)
 6. [Ejemplos](#ejemplos)
-7. [Cómo ejecutarlo](#como-ejecutarlo)
+7. [Cómo ejecutarlo](#cómo-ejecutarlo)
 8. [Uso](#uso)
 9. [Desarrollo](#desarrollo)
-10. [Historial de desarrollo](#historial-de-desarrollo)
+10. [Historial del desarrollo](#historial-del-desarrollo)
 
 Sobre Colorator
 ---------------
