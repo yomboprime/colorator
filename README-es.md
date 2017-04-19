@@ -40,29 +40,28 @@ Editado bajo la licencia de software libre LGPL v3
 Ejemplos
 --------
 
-Imagen hecha por Kel:
+Kel:
 
-![Doppel](http://airsynth.es/archivos/colorator/examples/doppel.png)
+![Doppel](http://airsynth.es/archivos/colorator/examples/doppel2.png)
 
+[Jon Cortázar](https://twitter.com/jon_cortazar):
+
+![Escena feliz Colorator](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar.png)
+
+![Escena feliz Original](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar-msx.png)
 
 @airsynth:
 
 ![Demo Colorator](http://airsynth.es/archivos/colorator/examples/demo-colorator.png)
 
-Comparación de una imagen editada por mi hermano @airsynth usando alta resolución de color:
-
 ![Turbo Esprit Colorator](http://airsynth.es/archivos/colorator/examples/turboesprit-colorator.png)
 
 ![Turbo Esprit Original](http://airsynth.es/archivos/colorator/examples/turboesprit-original.png)
 
+![La Mulana Colorator](http://airsynth.es/archivos/colorator/examples/la-mulana.png)
 
-Imagen original de MSX para importar (PNG, by Jon Cortázar):
+![La Mulana MSX](http://airsynth.es/archivos/colorator/examples/la-mulana-msx.png)
 
-![Escena feliz Original](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar-msx.png)
-
-Colorator:
-
-![Escena feliz Colorator](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar.png)
 
 Cómo ejecutarlo
 ---------------
@@ -144,6 +143,11 @@ Ficheros de desarrollo del proyecto en Eclipse Java incluidos.
 
 Historial del desarrollo
 -------------------------
+
+1.16 (2017-04-19)
+
+- Mejor manejo del zoom.
+- Añadido el ejemplo La Mulana.
 
 1.15
 
