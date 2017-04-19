@@ -49,29 +49,28 @@ Released under LGPL v3 free software license
 Examples
 --------
 
-Image made by Kel:
+Kel:
 
-![Doppel](http://airsynth.es/archivos/colorator/examples/doppel.png)
+![Doppel](http://airsynth.es/archivos/colorator/examples/doppel2.png)
 
+[Jon Cortázar](https://twitter.com/jon_cortazar):
+
+![Escena feliz Colorator](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar.png)
+
+![Escena feliz Original](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar-msx.png)
 
 @airsynth:
 
 ![Demo Colorator](http://airsynth.es/archivos/colorator/examples/demo-colorator.png)
 
-Comparison of image edited by my brother @airsynth using high resolution color:
-
 ![Turbo Esprit Colorator](http://airsynth.es/archivos/colorator/examples/turboesprit-colorator.png)
 
 ![Turbo Esprit Original](http://airsynth.es/archivos/colorator/examples/turboesprit-original.png)
 
+![La Mulana Colorator](http://airsynth.es/archivos/colorator/examples/la-mulana.png)
 
-Original imported MSX image (PNG, by Jon Cortázar):
+![La Mulana MSX](http://airsynth.es/archivos/colorator/examples/la-mulana-msx.png)
 
-![Escena feliz Original](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar-msx.png)
-
-Colorator:
-
-![Escena feliz Colorator](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar.png)
 
 How to run
 ----------
@@ -147,6 +146,11 @@ Eclipse Java development project files included.
 
 Development Log
 ---------------
+
+1.16 (2017-04-19)
+
+- Better zoom handling.
+- Added La Mulana example.
 
 1.15
 
