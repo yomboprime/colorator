@@ -205,6 +205,8 @@ public class Importador
 
         pantalla.cargarDeMemoriaScr( scr );
 
+        pantalla.normalizar();
+
     }
 
     private static int incrementarLoopNumber( int loopNumber, int loops, JProgressBar progressBar, JComponent componentToUpdate ) {

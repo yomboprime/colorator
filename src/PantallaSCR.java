@@ -192,4 +192,42 @@ public class PantallaSCR extends Pantalla
         return datos;
     }
 
+    public void normalizar() {
+        // Normaliza (paper < ink) en todos los bloques 8x8
+        for ( int aj = 0; aj < ATTRS_Y; aj++ ) {
+            for ( int ai = 0; ai < ATTRS_X; ai++ ) {
+                byte attrs = this.getAttribute( ai, aj );
+                int paper = getPaper( attrs );
+                int ink = getInk( attrs );
+                // If paper > ink...
+                if ( paper > ink ) {
+                    // Invert paper and ink, and the bitmap
+                    attrs = createAttribute( getFlash( attrs ), getBright( attrs ), ink, paper );
+                    setAttribute( attrs, ai, aj );
+                    for ( int j = 0; j < 8; j++ ) {
+                        for ( int i = 0; i < 8; i++ ) {
+                            int x = 8 * ai + i;
+                            int y = 8 * aj + j;
+                            setBitmap( x, y, ! getBitmap( x, y ), false );
+                        }
+                    }
+                }
+                else if ( paper == ink ) {
+                    boolean flash = paper == 0 ? false : getFlash( attrs );
+                    boolean bright = paper == 0 ? false : getBright( attrs );
+                    boolean bitmap = paper == 0 ? false : true;
+                    attrs = createAttribute( flash, bright, bitmap ? 7 : paper, bitmap ? paper : 7 );
+                    setAttribute( attrs, ai, aj );
+
+                    for ( int j = 0; j < 8; j++ ) {
+                        for ( int i = 0; i < 8; i++ ) {
+                            int x = 8 * ai + i;
+                            int y = 8 * aj + j;
+                            setBitmap( x, y, bitmap, false );
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

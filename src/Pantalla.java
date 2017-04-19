@@ -614,4 +614,8 @@ public class Pantalla
             }
         }    
     }
+
+    public void normalizar() {
+        // Implement in subclasses
+    }
 }

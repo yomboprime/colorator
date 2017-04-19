@@ -18,6 +18,7 @@
  * Panel de herramientas izquierdo  
  */
 import javax.swing.*;
+import javax.swing.filechooser.*;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -44,6 +45,15 @@ public class PanelToolbar extends JPanel implements ActionListener {
     JToggleButton btnSelectBlock;
     
     JFileChooser fileChooser;
+    
+    FileNameExtensionFilter fcfilterCOLORATOR;
+    FileNameExtensionFilter fcfilterCOLORATOR_ATTRS;
+    FileNameExtensionFilter fcfilterSCR;
+    FileNameExtensionFilter fcfilterPNG;
+    FileNameExtensionFilter fcfilterPNG_JPG_GIF;
+    FileNameExtensionFilter fcfilterTAP;
+    FileNameExtensionFilter fcfilterTXT;
+
     
     public PanelToolbar(Colorator col) {
         super();
@@ -185,6 +195,23 @@ public class PanelToolbar extends JPanel implements ActionListener {
         
         
         fileChooser = new JFileChooser("../examples");
+        fileChooser.setAcceptAllFileFilterUsed( true );
+        
+        fcfilterCOLORATOR = new FileNameExtensionFilter( "Colorator files (.colorator)", "colorator" );
+        fcfilterCOLORATOR_ATTRS = new FileNameExtensionFilter( "Colorator hi-res attribute files (.colattr)", "colattr" );
+        fcfilterSCR = new FileNameExtensionFilter( "SCR images", "scr" );
+        fcfilterPNG = new FileNameExtensionFilter( "PNG images", "png" );
+        fcfilterPNG_JPG_GIF = new FileNameExtensionFilter( "PNG, JPG, GIF images", "png", "jpg", "jpeg", "gif" );
+        fcfilterTAP = new FileNameExtensionFilter( ".TAP files", "tap" );
+        fcfilterTXT = new FileNameExtensionFilter( ".txt files", "txt" );
+        
+        fileChooser.setFileFilter( fcfilterCOLORATOR );
+        fileChooser.setFileFilter( fcfilterCOLORATOR_ATTRS );
+        fileChooser.setFileFilter( fcfilterSCR );
+        fileChooser.setFileFilter( fcfilterPNG );
+        fileChooser.setFileFilter( fcfilterPNG_JPG_GIF );
+        fileChooser.setFileFilter( fcfilterTAP );
+        fileChooser.setFileFilter( fcfilterTXT );
 
     }
     
@@ -195,12 +222,14 @@ public class PanelToolbar extends JPanel implements ActionListener {
             if ( ! confirm ) {
                 return;
             }
+            fileChooser.setFileFilter( fcfilterCOLORATOR );
             int result = fileChooser.showOpenDialog(colorator.panelEditor);
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.cargar( fileChooser.getSelectedFile() );
             }
         }
         else if (e.getSource() == btnSave) {
+            fileChooser.setFileFilter( fcfilterCOLORATOR );
             int result = fileChooser.showSaveDialog(colorator.panelEditor);
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.salvar( fileChooser.getSelectedFile() );

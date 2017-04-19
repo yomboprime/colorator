@@ -742,7 +742,7 @@ public class Colorator
 	    	}
 	    	cambiarColoresBloqueBasic( cargadorBasic );
 
-	    	tap.nuevoBloque( TAP.BLOQUE_BASIC, file.getName(), cargadorBasic, 0, cargadorBasic.length, 10/*Line 0*/, 0 /*dont care*/);
+//	    	tap.nuevoBloque( TAP.BLOQUE_BASIC, file.getName(), cargadorBasic, 0, cargadorBasic.length, 10/*Line 0*/, 0 /*dont care*/);
 
 	    	byte datos[] = pantalla.obtenerEnMemoriaScr();
 	    	
@@ -1092,7 +1092,7 @@ public class Colorator
     	setBarraTexto( "Done exporting 1x1 graphics." );
     }
 
-    public void generarTextoZXB1x1( File file, int numGraficos, ArrayList<Integer> bitmapBytes, ArrayList<Integer> attributeBytes ) {
+    public void generarTextoZXB1x1_antigua( File file, int numGraficos, ArrayList<Integer> bitmapBytes, ArrayList<Integer> attributeBytes ) {
 
     	// Por cada grafico hay 8 bytes de bitmap y 1 de atributos
     	
@@ -1100,8 +1100,12 @@ public class Colorator
 
         strBuf.append( "\n\n#define NUM_GRAPHICS " + numGraficos + "\n" );
 
+        /*
         strBuf.append( "dim graphics( 0 to NUM_GRAPHICS * 8 -1 ) as ubyte => _\n" );
         strBuf.append( "{ _\n" );
+        */
+
+        strBuf.append( "static unsigned char graphics[] = {\n" );
         
         for ( int i = 0; i < numGraficos; i++ ) {
         	strBuf.append( "\t" );
@@ -1111,10 +1115,10 @@ public class Colorator
         			strBuf.append( ", ");
         		}
         	}
-       		strBuf.append( " _\n" );
+       		strBuf.append( " \n" );
         }
 
-        strBuf.append( "}\n" );
+        strBuf.append( "};\n" );
         
         if ( attributeBytes != null ) {
 	        strBuf.append( "\ndim attributes( 0 to NUM_GRAPHICS -1 ) as ubyte => _\n{ _\n\t" );
@@ -1150,6 +1154,39 @@ public class Colorator
 
     }
 
+    public void generarTextoZXB1x1( File file, int numGraficos, ArrayList<Integer> bitmapBytes, ArrayList<Integer> attributeBytes ) {
+
+    	// Por cada grafico hay 8 bytes de bitmap y 1 de atributos
+
+        StringBuffer strBuf = new StringBuffer();
+
+        for ( int i = 0; i < numGraficos; i++ ) {
+        	for ( int j = 0; j < 8; j++ ) {
+        		strBuf.append( Integer.toHexString( bitmapBytes.get( i * 8 + j ) ) );
+                        strBuf.append( "\n" );
+        	}
+        }
+
+        // Guarda el fichero
+        BufferedWriter output = null;
+        try {
+            output = new BufferedWriter( new FileWriter( file ) );
+            output.write( strBuf.toString() );
+        }
+        catch ( IOException e ) {
+            panelEditor.mostrarMensaje( "Couldn't save file " + file );
+            return;
+        }
+        try {
+            output.close();
+        }
+        catch ( IOException e ) {
+            // Nada que hacer
+        }
+
+    }
+
+
     public void exportarSpritesSeleccion( File file, int tipo ) {
 
     	// Obtiene bounding box
@@ -1183,16 +1220,16 @@ public class Colorator
     			// Bucle por las filas del bloque, generando un byte por fila
     			for ( int fila = 0; fila < 8; fila++ ) {
 
-	    			int pj = bj * 8 + fila;
+	    			int pj = bi * 8 + fila;
 
 	    	    	int valorFila = 0;
 	    	    	int valorPixel = 128;
 
 	    			// Bucle para los 8 pixels de la fila
 	    			for ( int col = 0; col < 8; col++ ) {
-	    				int pi = bi * 8 + col;
+	    				int pi = bj * 8 + col;
 	
-	    				if ( pantalla.getBitmap( pi, pj ) ) {
+	    				if ( pantalla.getBitmap( pj, pi ) ) {
 	    					valorFila += valorPixel;
 	    				}
 	    				valorPixel >>= 1;
