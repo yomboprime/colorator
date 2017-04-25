@@ -57,6 +57,8 @@ Editado bajo la licencia de software libre LGPL v3
 Ejemplos
 --------
 
+![La Mulana MSX](http://airsynth.es/archivos/colorator/examples/colorator-pantallazo-la-mulana.png)
+
 Kel:
 
 ![Doppel](http://airsynth.es/archivos/colorator/examples/doppel2.png)
