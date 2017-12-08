@@ -57,11 +57,13 @@ Editado bajo la licencia de software libre LGPL v3
 Ejemplos
 --------
 
+![La Mulana MSX](http://airsynth.es/archivos/colorator/examples/colorator-pantallazo-la-mulana.png)
+
 Kel:
 
 ![Doppel](http://airsynth.es/archivos/colorator/examples/doppel2.png)
 
-[Jon Cortázar](https://twitter.com/jon_cortazar):
+[Jon Cortázar](https://twitter.com/jon_cortazar) (conversión desde MSX):
 
 ![Escena feliz Colorator](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar.png)
 
@@ -74,6 +76,8 @@ Kel:
 ![Turbo Esprit Colorator](http://airsynth.es/archivos/colorator/examples/turboesprit-colorator.png)
 
 ![Turbo Esprit Original](http://airsynth.es/archivos/colorator/examples/turboesprit-original.png)
+
+ Conversión desde MSX:
 
 ![La Mulana Colorator](http://airsynth.es/archivos/colorator/examples/la-mulana.png)
 
