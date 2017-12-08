@@ -1,5 +1,5 @@
 /**
- * 
+ *
  *  Copyright (C) 2010  Juan Jose Luna Espinosa juanjoluna@gmail.com
 
  *  This program is free software: you can redistribute it and/or modify
@@ -13,8 +13,8 @@
 
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *  
- *  
+ *
+ *
  *  Menu de la barra superior
  */
 import javax.swing.*;
@@ -30,7 +30,7 @@ import java.util.ArrayList;
 public class MenuColorator implements ActionListener
 {
     public Colorator colorator;
-    
+
     public JMenuItem opcionAbrir;
     public JMenuItem opcionGuardar;
     public JMenuItem opcionAbrirScr;
@@ -46,13 +46,13 @@ public class MenuColorator implements ActionListener
     public JMenuItem opcionExportarSpritesZXBSeleccion;
     public JMenuItem opcionExportarSpritesArduino2x2;
     public JMenuItem opcionSalir;
-    
+
     public JMenuItem opcionUndo;
     public JMenuItem opcionRedo;
     public JMenuItem opcionBorrarBitmap;
     public JMenuItem opcionBorrarColores;
     public JMenuItem opcionInvertirBitmap;
-    
+
     public JRadioButtonMenuItem radioModoHiRes;
     public JRadioButtonMenuItem radioModoNormal;
 
@@ -68,7 +68,7 @@ public class MenuColorator implements ActionListener
     public JMenuItem opcionPintarAtributo;
     public JMenuItem opcionLinea;
     public JMenuItem opcionCopiar;
-    
+
     public JMenuItem opcionZoomIn;
     public JMenuItem opcionZoomOut;
     public JMenuItem opcionZoom1;
@@ -87,7 +87,7 @@ public class MenuColorator implements ActionListener
         JMenu menuFichero = new JMenu("File");
         menuFichero.setMnemonic(KeyEvent.VK_F);
         menuBar.add(menuFichero);
-        
+
         opcionAbrir = new JMenuItem("Open", KeyEvent.VK_O);
         opcionAbrir.addActionListener(this);
         menuFichero.add(opcionAbrir);
@@ -137,15 +137,15 @@ public class MenuColorator implements ActionListener
         opcionExportarSpritesZXB1x1 = new JMenuItem("Export sprites (ZXB format 1x1)", KeyEvent.VK_P);
         opcionExportarSpritesZXB1x1.addActionListener(this);
         menuFichero.add(opcionExportarSpritesZXB1x1);
-        
+
         opcionExportarSpritesZXB2x2 = new JMenuItem("Export sprites (ZXB format 2x2)", KeyEvent.VK_P);
         opcionExportarSpritesZXB2x2.addActionListener(this);
         menuFichero.add(opcionExportarSpritesZXB2x2);
-        
+
         opcionExportarSpritesZXBSeleccion = new JMenuItem("Export sprites (ZXB format, selected blocks)", KeyEvent.VK_C);
         opcionExportarSpritesZXBSeleccion.addActionListener(this);
         menuFichero.add(opcionExportarSpritesZXBSeleccion);
-        
+
         opcionExportarSpritesArduino2x2 = new JMenuItem("Export sprites (Arduino format 2x2)", KeyEvent.VK_Y);
         opcionExportarSpritesArduino2x2.addActionListener(this);
         menuFichero.add(opcionExportarSpritesArduino2x2);
@@ -157,7 +157,7 @@ public class MenuColorator implements ActionListener
         menuFichero.add(opcionExportarTAP);
 
         menuFichero.addSeparator();
-        
+
         opcionSalir = new JMenuItem("Exit", KeyEvent.VK_E);
         opcionSalir.addActionListener(this);
         menuFichero.add(opcionSalir);
@@ -165,7 +165,7 @@ public class MenuColorator implements ActionListener
         JMenu menuEdicion = new JMenu("Edit");
         menuEdicion.setMnemonic(KeyEvent.VK_E);
         menuBar.add(menuEdicion);
-        
+
         opcionUndo = new JMenuItem("Undo", KeyEvent.VK_U);
         opcionUndo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, ActionEvent.CTRL_MASK));
         opcionUndo.addActionListener(this);
@@ -187,17 +187,17 @@ public class MenuColorator implements ActionListener
         opcionBorrarColores.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
         opcionBorrarColores.addActionListener(this);
         menuEdicion.add(opcionBorrarColores);
-        
+
         opcionInvertirBitmap = new JMenuItem("Invert bitmap", KeyEvent.VK_I);
         opcionInvertirBitmap.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, ActionEvent.CTRL_MASK));
         opcionInvertirBitmap.addActionListener(this);
         menuEdicion.add(opcionInvertirBitmap);
 
         menuEdicion.addSeparator();
-        
+
         JMenu subMenuModo = new JMenu("Screen mode");
         subMenuModo.setMnemonic(KeyEvent.VK_M);
-        
+
         radioModoHiRes = new JRadioButtonMenuItem("Hi-res color mode");
         radioModoHiRes.setMnemonic(KeyEvent.VK_H);
         radioModoHiRes.setSelected(true);
@@ -213,7 +213,7 @@ public class MenuColorator implements ActionListener
 
         subMenuModo.add(radioModoHiRes);
         subMenuModo.add(radioModoNormal);
-        
+
         menuEdicion.add(subMenuModo);
 
         JMenu menuSeleccion = new JMenu("Select");
@@ -224,17 +224,17 @@ public class MenuColorator implements ActionListener
         opcionSeleccionarNada.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.CTRL_MASK));
         opcionSeleccionarNada.addActionListener(this);
         menuSeleccion.add(opcionSeleccionarNada);
-        
+
         opcionSeleccionarLapiz = new JMenuItem("Pen select", KeyEvent.VK_P);
         opcionSeleccionarLapiz.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, ActionEvent.CTRL_MASK));
         opcionSeleccionarLapiz.addActionListener(this);
         menuSeleccion.add(opcionSeleccionarLapiz);
-        
+
         opcionSeleccionarFree = new JMenuItem("Free select", KeyEvent.VK_F);
         opcionSeleccionarFree.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, ActionEvent.CTRL_MASK));
         opcionSeleccionarFree.addActionListener(this);
         menuSeleccion.add(opcionSeleccionarFree);
-        
+
         opcionSeleccionarRectangulo = new JMenuItem("Rectangle select", KeyEvent.VK_R);
         opcionSeleccionarRectangulo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, ActionEvent.CTRL_MASK));
         opcionSeleccionarRectangulo.addActionListener(this);
@@ -244,7 +244,7 @@ public class MenuColorator implements ActionListener
         opcionSeleccionarBloques.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_K, ActionEvent.CTRL_MASK));
         opcionSeleccionarBloques.addActionListener(this);
         menuSeleccion.add(opcionSeleccionarBloques);
-        
+
         JMenu menuTools = new JMenu("Tools");
         menuTools.setMnemonic(KeyEvent.VK_T);
         menuBar.add(menuTools);
@@ -335,7 +335,7 @@ public class MenuColorator implements ActionListener
     	frameAbout.pack();
     	frameAbout.setVisible( true );
     }
-    
+
     public static ArrayList<String> leerFicheroTexto( String path ) {
 
         // Si el fichero no existe o hay otro error, se devuelve null
@@ -366,25 +366,25 @@ public class MenuColorator implements ActionListener
         catch ( IOException e ) {
             // Nada que hacer
         }
-        
+
         return lineas;
     }
 
 
     public void actionPerformed(ActionEvent e) {
-        
+
         if (e.getSource() == opcionAbrir) {
             boolean confirm = colorator.confirmUnsavedChangesDiscard();
             if ( ! confirm ) {
                 return;
             }
-            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterCOLORATOR );
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterCOLORATOR, false );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.cargar( colorator.panelToolbar.fileChooser.getSelectedFile() );
             }
         }
         else if (e.getSource() == opcionGuardar) {
-            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterCOLORATOR );
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterCOLORATOR, true );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.salvar( colorator.panelToolbar.fileChooser.getSelectedFile() );
             }
@@ -394,73 +394,73 @@ public class MenuColorator implements ActionListener
             if ( ! confirm ) {
                 return;
             }
-            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterSCR );
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterSCR, false );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.cargarScr( colorator.panelToolbar.fileChooser.getSelectedFile() );
             }
         }
         else if (e.getSource() == opcionGuardarScr) {
-            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterSCR );
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterSCR, true );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.salvarSCR( colorator.panelToolbar.fileChooser.getSelectedFile() );
             }
         }
         else if (e.getSource() == opcionGuardarAtributosAlta) {
-            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterCOLORATOR_ATTRS );
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterCOLORATOR_ATTRS, true );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.salvarAtributosAlta( colorator.panelToolbar.fileChooser.getSelectedFile() );
             }
         }
         else if (e.getSource() == opcionAbrirAtributosAlta) {
-            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterCOLORATOR_ATTRS );
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterCOLORATOR_ATTRS, false );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.cargarAtributosAlta( colorator.panelToolbar.fileChooser.getSelectedFile() );
             }
         }
         else if (e.getSource() == opcionImportarSoloHI) {
-            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterPNG_JPG_GIF );
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterPNG_JPG_GIF, false );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.importarImagenSoloHI( colorator.panelToolbar.fileChooser.getSelectedFile() );
             }
         }
         else if (e.getSource() == opcionImportarEntera) {
-            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterPNG_JPG_GIF );
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterPNG_JPG_GIF, false );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.importarImagenEntera( colorator.panelToolbar.fileChooser.getSelectedFile() );
             }
         }
         else if (e.getSource() == opcionExportarImagen) {
-            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterPNG );
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterPNG, true );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.exportarImagenEntera( colorator.panelToolbar.fileChooser.getSelectedFile() );
             }
         }
         else if (e.getSource() == opcionExportarTAP) {
-            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterTAP );
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterTAP, true );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.exportarFicheroTAP( colorator.panelToolbar.fileChooser.getSelectedFile() );
             }
         }
         else if (e.getSource() == opcionExportarSpritesZXB1x1) {
-            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterTXT );
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterTXT, true );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.exportarSprites1x1( colorator.panelToolbar.fileChooser.getSelectedFile(), Colorator.SPRITES_ZXB );
             }
         }
         else if (e.getSource() == opcionExportarSpritesZXB2x2) {
-            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterTXT );
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterTXT, true );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.exportarSprites2x2( colorator.panelToolbar.fileChooser.getSelectedFile(), Colorator.SPRITES_ZXB );
             }
         }
         else if (e.getSource() == opcionExportarSpritesZXBSeleccion) {
-            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterTXT );
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterTXT, true );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.exportarSpritesSeleccion( colorator.panelToolbar.fileChooser.getSelectedFile(), Colorator.SPRITES_ZXB );
             }
         }
         else if (e.getSource() == opcionExportarSpritesArduino2x2) {
-            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterTXT );
+            int result = colorator.panelToolbar.abrirDialogoFichero( colorator.panelToolbar.fcfilterTXT, true );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.exportarSprites2x2( colorator.panelToolbar.fileChooser.getSelectedFile(), Colorator.SPRITES_ARDUINO );
             }
@@ -477,7 +477,7 @@ public class MenuColorator implements ActionListener
                 System.exit(0);
             }
         }
-        
+
         else if (e.getSource() == opcionUndo) {
             colorator.makeUndo();
         }
@@ -493,7 +493,7 @@ public class MenuColorator implements ActionListener
         else if (e.getSource() == opcionInvertirBitmap ) {
         	colorator.invertBitmap();
         }
-        
+
         else if (e.getSource() == radioModoHiRes) {
             colorator.changeScreenMode(true);
         }
@@ -535,7 +535,7 @@ public class MenuColorator implements ActionListener
         else if (e.getSource() == opcionCopiar) {
         	colorator.seleccionarHerramienta( colorator.herramientaCopiar );
         }
-        
+
         else if (e.getSource() == opcionZoomIn) {
             colorator.panelEditor.zoomIn();
         }

@@ -1,5 +1,5 @@
 /**
- * 
+ *
  *  Copyright (C) 2010  Juan Jose Luna Espinosa juanjoluna@gmail.com
 
  *  This program is free software: you can redistribute it and/or modify
@@ -13,9 +13,9 @@
 
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *  
- *  
- * Panel de herramientas izquierdo  
+ *
+ *
+ * Panel de herramientas izquierdo
  */
 import java.util.Arrays;
 import java.io.File;
@@ -44,9 +44,9 @@ public class PanelToolbar extends JPanel implements ActionListener {
     JToggleButton btnSelectFree;
     JToggleButton btnSelectRect;
     JToggleButton btnSelectBlock;
-    
+
     JFileChooser fileChooser;
-    
+
     FileNameExtensionFilter fcfilterCOLORATOR;
     FileNameExtensionFilter fcfilterCOLORATOR_ATTRS;
     FileNameExtensionFilter fcfilterSCR;
@@ -56,7 +56,7 @@ public class PanelToolbar extends JPanel implements ActionListener {
     FileNameExtensionFilter fcfilterTXT;
 
     String coloratorFilename = "";
-    
+
     public PanelToolbar(Colorator col) {
         super();
         colorator = col;
@@ -65,22 +65,22 @@ public class PanelToolbar extends JPanel implements ActionListener {
 
         JPanel panel0 = new JPanel();
         panel0.setLayout(new BoxLayout(panel0, BoxLayout.X_AXIS));
-        
+
         btnOpen = new JButton(new ImageIcon("../iconos/open.png"));
         btnOpen.setToolTipText( "Open hi-res image" );
-        btnOpen.addActionListener(this);        
+        btnOpen.addActionListener(this);
         panel0.add(btnOpen);
-        
+
         btnSave = new JButton(new ImageIcon("../iconos/save.png"));
         btnSave.setToolTipText( "Save hi-res image" );
         btnSave.addActionListener(this);
         panel0.add(btnSave);
-        
+
         add(panel0);
-        
+
         JPanel panel1 = new JPanel();
         panel1.setLayout(new BoxLayout(panel1, BoxLayout.X_AXIS));
-        
+
         btnUndo = new JButton(new ImageIcon("../iconos/undo.png"));
         btnUndo.setToolTipText( "Undo last action" );
         btnUndo.addActionListener(this);
@@ -90,12 +90,12 @@ public class PanelToolbar extends JPanel implements ActionListener {
         btnRedo.setToolTipText( "Redo last undone action" );
         btnRedo.addActionListener(this);
         panel1.add(btnRedo);
-        
+
         add(panel1);
 
         JPanel panel2 = new JPanel();
         panel2.setLayout(new BoxLayout(panel2, BoxLayout.X_AXIS));
-        
+
         btnZoomIn = new JButton(new ImageIcon("../iconos/zoomin.png"));
         btnZoomIn.setToolTipText( "Zoom in" );
         btnZoomIn.addActionListener(this);
@@ -107,10 +107,10 @@ public class PanelToolbar extends JPanel implements ActionListener {
         panel2.add(btnZoomOut);
 
         add(panel2);
-        
+
         JPanel panel3 = new JPanel();
         panel3.setLayout(new BoxLayout(panel3, BoxLayout.X_AXIS));
-        
+
         btnLapiz = new JToggleButton(new ImageIcon("../iconos/lapiz.png"));
         btnLapiz.setToolTipText( "Pen tool" );
         btnLapiz.addActionListener(this);
@@ -119,14 +119,14 @@ public class PanelToolbar extends JPanel implements ActionListener {
 
         btnRectangulo = new JToggleButton(new ImageIcon("../iconos/rectangulo.png"));
         btnRectangulo.setToolTipText( "Rectangle tool" );
-        btnRectangulo.addActionListener(this);        
+        btnRectangulo.addActionListener(this);
         panel3.add(btnRectangulo);
-        
+
         add(panel3);
 
         JPanel panel4 = new JPanel();
         panel4.setLayout(new BoxLayout(panel4, BoxLayout.X_AXIS));
-        
+
         btnRellenar = new JToggleButton(new ImageIcon("../iconos/fill.png"));
         btnRellenar.setToolTipText( "Floodfill tool" );
         btnRellenar.addActionListener(this);
@@ -134,14 +134,14 @@ public class PanelToolbar extends JPanel implements ActionListener {
 
         btnPintarAtributo = new JToggleButton(new ImageIcon("../iconos/lapizatributo.png"));
         btnPintarAtributo.setToolTipText( "Pen tool (only attributes)" );
-        btnPintarAtributo.addActionListener(this);        
+        btnPintarAtributo.addActionListener(this);
         panel4.add(btnPintarAtributo);
-        
+
         add(panel4);
 
         JPanel panel5 = new JPanel();
         panel5.setLayout(new BoxLayout(panel5, BoxLayout.X_AXIS));
-        
+
         btnLinea = new JToggleButton(new ImageIcon("../iconos/linea.png"));
         btnLinea.setToolTipText( "Line tool" );
         btnLinea.addActionListener(this);
@@ -183,7 +183,7 @@ public class PanelToolbar extends JPanel implements ActionListener {
         panel7.add(btnSelectBlock);
 
         add(panel7);
-        
+
         JPanel panel8 = new JPanel();
         panel8.setLayout(new BoxLayout(panel8, BoxLayout.X_AXIS));
 
@@ -194,11 +194,11 @@ public class PanelToolbar extends JPanel implements ActionListener {
 
         add(panel8);
 
-        
-        
+
+
         fileChooser = new JFileChooser("../examples");
         fileChooser.setAcceptAllFileFilterUsed( true );
-        
+
         fcfilterCOLORATOR = new FileNameExtensionFilter( "Colorator files (.colorator)", "colorator" );
         fcfilterCOLORATOR_ATTRS = new FileNameExtensionFilter( "Colorator hi-res attribute files (.colattr)", "colattr" );
         fcfilterSCR = new FileNameExtensionFilter( "SCR images", "scr" );
@@ -206,7 +206,7 @@ public class PanelToolbar extends JPanel implements ActionListener {
         fcfilterPNG_JPG_GIF = new FileNameExtensionFilter( "PNG, JPG, GIF images", "png", "jpg", "jpeg", "gif" );
         fcfilterTAP = new FileNameExtensionFilter( ".TAP files", "tap" );
         fcfilterTXT = new FileNameExtensionFilter( ".txt files", "txt" );
-        
+
         fileChooser.setFileFilter( fcfilterCOLORATOR );
         fileChooser.setFileFilter( fcfilterCOLORATOR_ATTRS );
         fileChooser.setFileFilter( fcfilterSCR );
@@ -216,7 +216,7 @@ public class PanelToolbar extends JPanel implements ActionListener {
         fileChooser.setFileFilter( fcfilterTXT );
 
     }
-    
+
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == btnOpen) {
@@ -224,13 +224,13 @@ public class PanelToolbar extends JPanel implements ActionListener {
             if ( ! confirm ) {
                 return;
             }
-            int result = this.abrirDialogoFichero( fcfilterCOLORATOR );
+            int result = this.abrirDialogoFichero( fcfilterCOLORATOR, false );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.cargar( fileChooser.getSelectedFile() );
             }
         }
         else if (e.getSource() == btnSave) {
-            int result = this.abrirDialogoFichero( fcfilterCOLORATOR );
+            int result = this.abrirDialogoFichero( fcfilterCOLORATOR, true );
             if (result == JFileChooser.APPROVE_OPTION) {
                 colorator.salvar( fileChooser.getSelectedFile() );
             }
@@ -238,7 +238,7 @@ public class PanelToolbar extends JPanel implements ActionListener {
         else if (e.getSource() == btnZoomOut) {
             colorator.panelEditor.zoomOut();
         }
-        else if (e.getSource() == btnZoomIn) {            
+        else if (e.getSource() == btnZoomIn) {
             colorator.panelEditor.zoomIn();
         }
         else if (e.getSource() == btnUndo) {
@@ -287,7 +287,7 @@ public class PanelToolbar extends JPanel implements ActionListener {
     }
 
     public void seleccionarBtnHerramienta(JToggleButton btn) {
-        
+
         if ( btn != null ) {
             btn.setSelected(true);
         }
@@ -323,8 +323,8 @@ public class PanelToolbar extends JPanel implements ActionListener {
         	btnSelectBlock.setSelected(false);
         }
     }
-    
-    int abrirDialogoFichero( FileNameExtensionFilter filtro ) {
+
+    int abrirDialogoFichero( FileNameExtensionFilter filtro, boolean salvar ) {
 
         File f = fileChooser.getSelectedFile();
 
@@ -342,9 +342,13 @@ public class PanelToolbar extends JPanel implements ActionListener {
         }
 
         fileChooser.setFileFilter( filtro );
-        
-        int result = fileChooser.showOpenDialog( colorator.panelEditor );
 
-        return result;
+        if ( salvar ) {
+            return fileChooser.showSaveDialog( colorator.panelEditor );
+        }
+        else {
+            return fileChooser.showOpenDialog( colorator.panelEditor );
+        }
+
     }
 }
