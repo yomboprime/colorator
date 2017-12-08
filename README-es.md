@@ -57,31 +57,31 @@ Editado bajo la licencia de software libre LGPL v3
 Ejemplos
 --------
 
-![La Mulana MSX](http://airsynth.es/archivos/colorator/examples/colorator-pantallazo-la-mulana.png)
+![La Mulana MSX](https://github.com/yomboprime/colorator/raw/master/examples/colorator-pantallazo-la-mulana.png)
 
 Kel:
 
-![Doppel](http://airsynth.es/archivos/colorator/examples/doppel2.png)
+![Doppel](https://github.com/yomboprime/colorator/raw/master/examples/doppel2.png)
 
 [Jon Cortázar](https://twitter.com/jon_cortazar) (conversión desde MSX):
 
-![Escena feliz Colorator](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar.png)
+![Escena feliz Colorator](https://github.com/yomboprime/colorator/raw/master/examples/escena-feliz-jon-cortazar.png)
 
-![Escena feliz Original](http://airsynth.es/archivos/colorator/examples/escena-feliz-jon-cortazar-msx.png)
+![Escena feliz Original](https://github.com/yomboprime/colorator/raw/master/examples/escena-feliz-jon-cortazar-msx.png)
 
-[@airsynth]():
+[@airsynth](http://airsynth.es/):
 
-![Demo Colorator](http://airsynth.es/archivos/colorator/examples/demo-colorator.png)
+![Demo Colorator](https://github.com/yomboprime/colorator/raw/master/examples/demo-colorator.png)
 
-![Turbo Esprit Colorator](http://airsynth.es/archivos/colorator/examples/turboesprit-colorator.png)
+![Turbo Esprit Colorator](https://github.com/yomboprime/colorator/raw/master/examples/turboesprit-colorator.png)
 
-![Turbo Esprit Original](http://airsynth.es/archivos/colorator/examples/turboesprit-original.png)
+![Turbo Esprit Original](https://github.com/yomboprime/colorator/raw/master/examples/turboesprit-original.png)
 
  Conversión desde MSX:
 
-![La Mulana Colorator](http://airsynth.es/archivos/colorator/examples/la-mulana.png)
+![La Mulana Colorator](https://github.com/yomboprime/colorator/raw/master/examples/la-mulana.png)
 
-![La Mulana MSX](http://airsynth.es/archivos/colorator/examples/la-mulana-msx.png)
+![La Mulana MSX](https://github.com/yomboprime/colorator/raw/master/examples/la-mulana-msx.png)
 
 
 Cómo ejecutarlo
