@@ -1,5 +1,5 @@
 /**
- * 
+ *
  *  Copyright (C) 2010  Juan Jose Luna Espinosa juanjoluna@gmail.com
 
  *  This program is free software: you can redistribute it and/or modify
@@ -13,8 +13,8 @@
 
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *  
- *  
+ *
+ *
  * Clase de aplicacion
  */
 import java.util.*;
@@ -30,7 +30,7 @@ public class Colorator
 
     public static int SPRITES_ZXB = 0;
     public static int SPRITES_ARDUINO = 1;
-	
+
     public JFrame frameEditor;
 
     // Scroll de la pantalla visora
@@ -43,10 +43,10 @@ public class Colorator
     public JLabel labelBarraTexto;
 
     boolean hiResScreenMode;
-    
+
     public Pantalla pantalla;
     boolean pantallaEditada;
-    
+
     public Herramienta herramientaActual;
     public Lapiz lapiz;
     public HerramientaRectangulo herramientaRectangulo;
@@ -58,26 +58,26 @@ public class Colorator
     public HerramientaSeleccionRectangulo herramientaSeleccionRectangulo;
     public HerramientaSeleccionBloques herramientaSeleccionBloques;
     public HerramientaCopiar herramientaCopiar;
-    
+
     public FiltroFlipHorizontal filtroFlipHorizontal;
     public FiltroFlipVertical filtroFlipVertical;
     public FiltroRotarDerecha filtroRotarDerecha;
     public FiltroRotarIzquierda filtroRotarIzquierda;
 
     public HiloRefrescoFlash hiloRefrescoFlash;
-    
+
     public byte attrsActual;
     public boolean modoTransparentePaper;
     public boolean modoTransparenteInk;
     public boolean modoTransparenteBright;
     public boolean modoTransparenteFlash;
     public boolean gridVisible;
-    
+
     public ArrayList<Pantalla> undo;
     public int indexUndo;
-    
+
     public static void main(String args[]) {
-        
+
         System.out.println("Colorator graphical editor");
         System.out.println("Copyright (C) 2009  Juan Jose Luna Espinosa juanjoluna@gmail.com");
         System.out.println("");
@@ -93,7 +93,7 @@ public class Colorator
         System.out.println("You should have received a copy of the GNU General Public License");
         System.out.println("along with this program.  If not, see <http://www.gnu.org/licenses/>.");
         System.out.println("");
-        
+
         if ( args.length == 0 ) {
             System.out.println("Parameters:");
             System.out.println("-gui Show editor and toolbar in separated windows.");
@@ -101,9 +101,9 @@ public class Colorator
             System.out.println("    *.colorator: Colorator internal file type");
             System.out.println("    *.scr: SCR file format");
         }
-        
+
         Colorator colorator = new Colorator(args);
-        
+
     }
 
     public Colorator(String args[]) {
@@ -128,15 +128,15 @@ public class Colorator
         }
 
         hiResScreenMode = true;
-        
+
         pantalla = new PantallaHi();
         pantalla.borra();
         pantallaEditada = false;
-        
+
         attrsActual = Pantalla.createAttribute(false, false, 7, 0);
         modoTransparentePaper = false;
         modoTransparenteInk = false;
-        
+
         lapiz = new Lapiz(this);
         herramientaRectangulo = new HerramientaRectangulo(this);
         herramientaRelleno = new HerramientaRelleno(this);
@@ -151,7 +151,7 @@ public class Colorator
         // La herramienta inicial es una dummy que hara padding y cogera atributos.
         // Para empezar a hacer algo el usuario debe seleccionar una herramienta con el GUI
         herramientaActual = new Herramienta( this );
-        
+
         filtroFlipHorizontal = new FiltroFlipHorizontal( this );
         filtroFlipVertical = new FiltroFlipVertical( this );
         filtroRotarIzquierda = new FiltroRotarIzquierda( this );
@@ -160,9 +160,9 @@ public class Colorator
         undo = new ArrayList<Pantalla>();
         newActionUndo();
         indexUndo = 0;
-       
+
         /*
-         * Inicializacion del GUI                
+         * Inicializacion del GUI
         */
 
         JFrame frameEditor = null;
@@ -171,9 +171,9 @@ public class Colorator
         scrollPane = new JScrollPane( this.panelEditor );
 
         this.panelToolbar = new PanelToolbar(this);
-        
+
         this.panelToolbar2 = new PanelToolbar2(this);
-        
+
         this.menuColorator = new MenuColorator(this);
         JMenuBar menuBar = menuColorator.crearMenuBar();
 
@@ -187,10 +187,10 @@ public class Colorator
         if ( ! guiOneFrame ) {
             frameEditor = new JFrame("Colorator");
             frameEditor.setSize(new Dimension(800,600));
-            
+
             frameEditor.setJMenuBar(menuBar);
             frameEditor.setContentPane(contentPane);
-            
+
             frameEditor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frameEditor.pack();
             frameEditor.setVisible(true);
@@ -200,7 +200,7 @@ public class Colorator
             frameToolbar.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
             frameToolbar.pack();
             frameToolbar.setVisible(true);
-            
+
             JFrame frameToolbar2 = new JFrame("");
             frameToolbar2.getContentPane().add(this.panelToolbar2);
             frameToolbar2.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -210,7 +210,7 @@ public class Colorator
         else {
             frameEditor = new JFrame("Colorator");
             frameEditor.setSize(new Dimension(800,600));
-  
+
             contentPane.add(panelToolbar, BorderLayout.WEST);
             contentPane.add(panelToolbar2, BorderLayout.EAST);
 
@@ -221,7 +221,7 @@ public class Colorator
             frameEditor.pack();
             frameEditor.setVisible(true);
         }
-        
+
         this.frameEditor = frameEditor;
 
         frameEditor.setTitle( "Colorator" );
@@ -240,7 +240,7 @@ public class Colorator
         	else if ( fileToLoad.endsWith( ".scr" ) ) {
         		cargarScr( new File( fileToLoad ) );
         	}
-        	
+
         	finishActionUndo();
         }
 
@@ -250,7 +250,7 @@ public class Colorator
 
         setBarraTexto( "Note: Hi-color screen selected by default. To change it, select Edit > Screen mode > Normal SCR color mode." );
     }
-    
+
     public void setBarraTexto( String texto ) {
     	labelBarraTexto.setText( texto );
     }
@@ -259,13 +259,13 @@ public class Colorator
         if (this.hiResScreenMode == hiResScreenMode) {
             return;
         }
-        
+
         if ( ! confirmUnsavedChangesDiscard() ) {
             return;
         }
-        
+
         this.hiResScreenMode = hiResScreenMode;
-        
+
         if ( hiResScreenMode ) {
             menuColorator.opcionAbrir.setEnabled(true);
             menuColorator.opcionGuardar.setEnabled(true);
@@ -274,9 +274,9 @@ public class Colorator
             menuColorator.opcionImportarSoloHI.setEnabled(true);
             panelToolbar.btnOpen.setEnabled(true);
             panelToolbar.btnSave.setEnabled(true);
-            
+
             pantalla = new PantallaHi();
-            
+
             setBarraTexto( "Mode set to hi color resolution image." );
         }
         else {
@@ -287,21 +287,21 @@ public class Colorator
             menuColorator.opcionImportarSoloHI.setEnabled(false);
             panelToolbar.btnOpen.setEnabled(false);
             panelToolbar.btnSave.setEnabled(false);
-            
+
             pantalla = new PantallaSCR();
-            
+
             setBarraTexto( "Mode set to normal Spectrum SCR image." );
         }
-        
+
         pantalla.borra();
         undo.clear();
         newActionUndo();
         indexUndo = 0;
-        
+
         panelEditor.repaint();
         pantallaEditada = false;
     }
-    
+
     // After this function executes, member pantalla is supposed to be changed. Unless eraseNewActionUndo() is called.
     public void newActionUndo() {
     	newActionUndo( null );
@@ -317,44 +317,44 @@ public class Colorator
         indexUndo++;
 
     }
-    
+
     // Call this function only just after newActionUndo()
     public void eraseNewActionUndo() {
-    	
+
     }
 
     public void finishActionUndo() {
         ( ( Pantalla ) undo.get( indexUndo ) ).copiarDe( pantalla );
     }
-    
+
     public void makeUndo() {
-        
+
         if ( herramientaActual != null && herramientaActual.enUso ) {
             return;
         }
-        
+
         if ( indexUndo > 0 ) {
 
             indexUndo--;
-            
+
             pantalla.copiarDe( undo.get( indexUndo ) );
-            
+
             panelEditor.repaint();
         }
     }
-    
+
     public void makeRedo() {
-        
+
         if ( herramientaActual != null && herramientaActual.enUso ) {
             return;
         }
-        
+
         if ( indexUndo < ( undo.size() - 1 ) ) {
 
             indexUndo++;
-           
+
             pantalla.copiarDe( undo.get( indexUndo ) );
-            
+
             panelEditor.repaint();
         }
     }
@@ -362,19 +362,19 @@ public class Colorator
     public void setAttrActual( byte attr ) {
 
     	attrsActual = attr;
-	    
-	    panelToolbar2.seleccionarBtnInk( 
+
+	    panelToolbar2.seleccionarBtnInk(
 	    panelToolbar2.btnInkArray[ Pantalla.getInk(attr) ] );
-	
-	    panelToolbar2.seleccionarBtnPaper( 
+
+	    panelToolbar2.seleccionarBtnPaper(
 	    panelToolbar2.btnPaperArray[ Pantalla.getPaper(attr) ] );
-	        
+
 	    panelToolbar2.btnBright.setSelected( Pantalla.getBright(attr) );
 	    panelToolbar2.seleccionarBtnBright();
     }
-    
+
     public void seleccionarHerramienta( Herramienta h ) {
-    	
+
     	if ( h == lapiz ) {
     		panelToolbar.seleccionarBtnHerramienta( panelToolbar.btnLapiz );
     		setBarraTexto( "Pen tool. Left click to paint pixels, right click to erase pixels. Ctrl to get attributes." );
@@ -420,25 +420,25 @@ public class Colorator
     }
 
     public void eraseBitmap() {
-    	
+
     	newActionUndo();
-    	
+
     	pantalla.rellena();
 
     	finishActionUndo();
-    	
+
     	panelEditor.repaint();
 
     }
 
     public void invertBitmap() {
-    	
+
     	newActionUndo();
-    	
+
     	pantalla.invierteBitmap();
 
     	finishActionUndo();
-    	
+
     	panelEditor.repaint();
 
     }
@@ -466,19 +466,19 @@ public class Colorator
         pantalla.desplazarIzquierda();
         panelEditor.repaint();
     }
-    
+
     public void desplazarPantallaDerecha() {
         newActionUndo();
         pantalla.desplazarDerecha();
         panelEditor.repaint();
     }
-    
+
     public void desplazarPantallaArriba() {
         newActionUndo();
         pantalla.desplazarArriba();
         panelEditor.repaint();
     }
-    
+
     public void desplazarPantallaAbajo() {
         newActionUndo();
         pantalla.desplazarAbajo();
@@ -533,18 +533,18 @@ public class Colorator
 
     public void salvarSCR(File file) {
         if ( pantalla.grabarEnFicheroScr( file ) ) {
-        
+
 	        if ( ! hiResScreenMode ) {
 	            pantallaEditada = false;
 	        }
-	        
+
 	        setBarraTexto( "Spectrum SCR image saved." );
         }
         else {
         	panelEditor.mostrarMensaje( "There was an error saving Spectrum SCR image." );
         }
     }
-    
+
     public void salvarAtributosAlta(File file) {
         if ( pantalla.grabarEnFicheroAtributosAlta( file ) ) {
         	setBarraTexto( "Hi color attributes saved to file " + file.getName() );
@@ -553,7 +553,7 @@ public class Colorator
         	panelEditor.mostrarMensaje( "There was an error saving hi color attributes to file " + file.getName() );
         }
     }
-    
+
     public void cargar(File file) {
 
         if ( hiResScreenMode ) {
@@ -562,11 +562,11 @@ public class Colorator
         else {
             pantalla = PantallaSCR.cargarDeFichero(file);
         }
-        
+
         if ( pantalla == null ) {
-            
+
             panelEditor.mostrarMensaje("There was an error while loading the image.");
-            
+
             if ( hiResScreenMode ) {
                 pantalla = new PantallaHi();
             }
@@ -577,7 +577,7 @@ public class Colorator
         }
 
         panelEditor.repaint();
-        
+
         setBarraTexto( "High resolution color image loaded." );
     }
 
@@ -590,16 +590,16 @@ public class Colorator
         if ( error != null ) {
             panelEditor.mostrarMensaje( error );
         }
-        
+
         finishActionUndo();
 
         panelEditor.repaint();
-        
+
         setBarraTexto( "Spectrum SCR image loaded." );
     }
 
     public void cargarAtributosAlta(File file) {
-        
+
         if ( ! hiResScreenMode ) {
             return;
         }
@@ -609,16 +609,16 @@ public class Colorator
         if ( ! ((PantallaHi)pantalla).cargarDeFicheroAtributosAlta( file ) ) {
             panelEditor.mostrarMensaje("There was an error loading hi-res attributes");
         }
-        
+
         finishActionUndo();
-        
+
         panelEditor.repaint();
     }
 
     public void importarImagenSoloHI(File file) {
 
     	newActionUndo();
-    	
+
         JFrame frameProgressBar = new JFrame("Importing image...");
 
         JProgressBar progressBar;
@@ -635,19 +635,19 @@ public class Colorator
         frameProgressBar.pack();
         frameProgressBar.setVisible(true);
 
-        
+
         String errorMessage = Importador.importarImagenSoloHI( Importador.cargarYEscalarImagen( file ), (PantallaHi)pantalla, false, progressBar, panelProgressBar );
 
         frameProgressBar.dispose();
-        
+
         if ( errorMessage != null ) {
             panelEditor.mostrarMensaje( errorMessage );
         }
 
         finishActionUndo();
-        
+
         panelEditor.repaint();
-        
+
         setBarraTexto( "Image imported." );
     }
 
@@ -657,7 +657,7 @@ public class Colorator
 
     	if ( hiResScreenMode ) {
 	        String errorMessage = Importador.importarImagenEnteraHi( Importador.cargarYEscalarImagen( file), (PantallaHi)pantalla );
-	        
+
 	        if ( errorMessage != null ) {
 	            panelEditor.mostrarMensaje( errorMessage );
 	        }
@@ -668,24 +668,24 @@ public class Colorator
         finishActionUndo();
 
         panelEditor.repaint();
-        
+
         setBarraTexto( "Image imported." );
     }
 
     public void exportarImagenEntera(File file) {
 
         String errorMessage = pantalla.exportarImagenEntera( file );
-        
+
         if ( errorMessage != null ) {
             panelEditor.mostrarMensaje( errorMessage );
             return;
         }
 
         pantallaEditada = false;
-        
+
         setBarraTexto( "Image exported." );
     }
-    
+
     public void exportarFicheroTAP( File file ) {
 
     	if ( pantalla.getClass().isAssignableFrom( PantallaHi.class ) ) {
@@ -702,9 +702,9 @@ public class Colorator
 	    		return;
 	    	}
 	    	cambiarColoresBloqueBasic( cargadorBasic );
-	    	
+
 	    	tap.nuevoBloque( TAP.BLOQUE_BASIC, nombreFichSpectrum, cargadorBasic, 0, cargadorBasic.length, 10, 0 );
-	    	
+
 	    	// Bloque rutina CM
 	    	String pathRutinaCM = "../TAP Colorator/COLR8R.CM datos.bin";
 	    	byte [] rutinaCM = UtilsFicherosBinario.leerFicheroBinario( pathRutinaCM );
@@ -712,25 +712,25 @@ public class Colorator
 	    		panelEditor.mostrarMensaje( "Unable to find file " + pathRutinaCM );
 	    		return;
 	    	}
-	    	
+
 	    	tap.nuevoBloque( TAP.BLOQUE_CODE, nombreFichSpectrum, rutinaCM, 0, rutinaCM.length, 49407, 0 );
-	    	
+
 	    	// Bloque de colores HI
-	    	    	
+
 	    	byte [] bloqueHi = ((PantallaHi)pantalla).attrsHi;
-	    	
+
 	    	tap.nuevoBloque( TAP.BLOQUE_CODE, nombreFichSpectrum, bloqueHi, 0, bloqueHi.length, 32768, 0 );
-	    	
+
 	    	// Bloque pantalla SCR
 
 	    	byte datosSCR[] = pantalla.obtenerEnMemoriaScr();
 	    	tap.nuevoBloque( TAP.BLOQUE_SCR, nombreFichSpectrum, datosSCR, 0, datosSCR.length, 0, 0 );
-	    	
+
 	    	tap.grabarFicheroTAP( file );
     	}
-    	
+
     	else {
-    		
+
     		TAP tap = new TAP();
 
 	    	// Bloque cargador basic
@@ -745,31 +745,31 @@ public class Colorator
 //	    	tap.nuevoBloque( TAP.BLOQUE_BASIC, file.getName(), cargadorBasic, 0, cargadorBasic.length, 10/*Line 0*/, 0 /*dont care*/);
 
 	    	byte datos[] = pantalla.obtenerEnMemoriaScr();
-	    	
+
 	    	tap.nuevoBloque( TAP.BLOQUE_SCR, file.getName(), datos, 0, datos.length, 0, 0 );
-	    	
+
 	    	tap.grabarFicheroTAP( file );
     	}
     }
 
     public void cambiarColoresBloqueBasic( byte programaBasic[] ) {
-    	
+
     	// Esta funcion analiza un bloque de bytes que representa un programa en Basic de Sinclair y
     	// sustituye todos los comandos INK, PAPER, BORDER, BRIGHT y FLASH por los atributos actuales
     	// de edicion de Colorator. El border se pone igual que el paper.
-    	
+
     	// Bucle por todos los bytes, pero asegurando que hay 5 bytes por delante (los ultimos no pueden ser comandos)
     	int n = programaBasic.length - 5;
     	for ( int i = 0; i < n; i++ ) {
 
     		byte b = programaBasic[ i ];
-    		
+
     		// Todos estos comandos de Basic son iguales, si el byte 0 es el de comando, el byte 1 es el
     		// codigo textual del numero (0x30 + numero), y el byte 5 es el numero tal cual (dentro de un
     		// numero de coma flotante)
     		byte byteDato = 0;
     		boolean comandoEncontrado = false;
-    		
+
     		if ( b == ((byte)0xD9) ) {
     			// Comando INK
     			byteDato = (byte)Pantalla.getInk( attrsActual );
@@ -797,23 +797,23 @@ public class Colorator
     		}
 
     		if ( comandoEncontrado ) {
-    			
+
     			// Hemos asegurado que habia 5 bytes por delante por lo que podemos hacer
     			// estas modificaciones:
-    			
+
     			// El byte 1 es el codigo textual del valor:
     			programaBasic[ i + 1 ] = (byte) ( byteDato + 0x030 );
-    			
+
     			// El byte 5 es el valor tal cual:
     			programaBasic[ i + 5 ] = byteDato;
-    			
+
     		}
     	}
 
     }
-    
+
     public void exportarSprites2x2( File file, int tipo ) {
-    	
+
     	// Tipo es de los definidos en Colorator
 
     	ArrayList<Integer> bitmapBytes = new ArrayList<Integer>();
@@ -824,18 +824,18 @@ public class Colorator
 
     	int attrsX = Pantalla.BITMAP_X / 8;
     	int attrsY = Pantalla.BITMAP_Y / 8;
-    	int maxGraficos = ( attrsX / 2 ) * ( attrsY / 2 ); 
-    	
+    	int maxGraficos = ( attrsX / 2 ) * ( attrsY / 2 );
+
     	while ( ! fin ) {
-    		
+
     		// Coordenadas de grafico
     		int j = indGrafico / ( attrsX / 2 );
     		int i = indGrafico - j * ( attrsX / 2 );
-    		
+
     		// Coordenadas del primer bloque
     		int bi = i * 2;
     		int bj = j * 2;
-    		
+
     		// Condicion de fin: pantalla entera completada
     		if ( indGrafico >= maxGraficos ) {
     			fin = true;
@@ -847,17 +847,17 @@ public class Colorator
     			fin = true;
     			break;
     		}
-    		
+
     		// Bucle por los 4 bloques del grafico
     		for ( int rbj = 0; rbj < 2; rbj++ ) {
     			int abj = bj + rbj;
     			for ( int rbi = 0; rbi < 2; rbi++ ) {
     				int abi = bi + rbi;
-    				
+
     				// Bucle para las 8 filas del bloque
     				for ( int fila = 0; fila < 8; fila++ ) {
     					int pj = abj * 8 + fila;
-    					
+
     					int valorFila = 0;
     					int valorPixel = 128;
 
@@ -870,28 +870,28 @@ public class Colorator
     						}
     						valorPixel >>= 1;
     					}
-    					
+
     					// Guarda el byte generado
     					bitmapBytes.add( new Integer( valorFila ) );
     				}
-    				
+
     				// Guarda los atributos del bloque
     				attributeBytes.add( new Integer( pantalla.getAttributePixel( abi * 8, abj * 8) ) );
     			}
     		}
-    		
+
     		indGrafico++;
-    		
+
     	}
 
     	if ( tipo == SPRITES_ZXB ) {
     		generarTextoZXB2x2( file, indGrafico, bitmapBytes, attributeBytes );
-    		
+
     		setBarraTexto( "Done exporting 2x2 ZXB graphics." );
     	}
     	else if ( tipo == SPRITES_ARDUINO ) {
     		generarTextoArduino2x2( file, indGrafico, bitmapBytes, attributeBytes );
-    		
+
     		setBarraTexto( "Done exporting 2x2 Arduino graphics." );
     	}
     }
@@ -906,7 +906,7 @@ public class Colorator
 
         strBuf.append( "dim graphics( 0 to NUM_GRAPHICS * 32 -1 ) as ubyte => _\n" );
         strBuf.append( "{ _\n" );
-        
+
         for ( int i = 0; i < numGraficos; i++ ) {
         	strBuf.append( "\t" );
         	for ( int j = 0; j < 32; j++ ) {
@@ -937,7 +937,7 @@ public class Colorator
         strBuf.append("' Sprites exported from " + file + '\n');
 
         strBuf.append( "#define NUM_UFO_GRAPHICS 2" );
-        
+
         for ( int indSprite = 0; indSprite < 5; indSprite++ ) {
         	strBuf.append( "\n\n\n' Sprite #" + indSprite + '\n' );
         	for ( int bj = 0; bj < 2; bj++) {
@@ -1002,7 +1002,7 @@ public class Colorator
         }
 
         strBuf.append( "\n};" );
-        
+
         // Guarda el fichero
         BufferedWriter output = null;
         try {
@@ -1023,7 +1023,7 @@ public class Colorator
     }
 
     public void exportarSprites1x1( File file, int tipo ) {
-    	
+
     	// Tipo es de los definidos en Colorator
 
     	ArrayList<Integer> bitmapBytes = new ArrayList<Integer>();
@@ -1034,14 +1034,14 @@ public class Colorator
 
     	int attrsX = Pantalla.BITMAP_X / 8;
     	int attrsY = Pantalla.BITMAP_Y / 8;
-    	int maxGraficos = ( attrsX ) * ( attrsY ); 
-    	
+    	int maxGraficos = ( attrsX ) * ( attrsY );
+
     	while ( ! fin ) {
-    		
+
     		// Coordenadas de grafico
     		int j = indGrafico / attrsX;
     		int i = indGrafico - j * attrsX;
-    		
+
     		// Condicion de fin: pantalla entera completada
     		if ( indGrafico >= maxGraficos ) {
     			fin = true;
@@ -1053,11 +1053,11 @@ public class Colorator
     			fin = true;
     			break;
     		}
-    		
+
 			// Bucle para las 8 filas del bloque
 			for ( int fila = 0; fila < 8; fila++ ) {
 				int pj = j * 8 + fila;
-				
+
 				int valorFila = 0;
 				int valorPixel = 128;
 
@@ -1070,16 +1070,16 @@ public class Colorator
 					}
 					valorPixel >>= 1;
 				}
-				
+
 				// Guarda el byte generado
 				bitmapBytes.add( new Integer( valorFila ) );
 			}
-    				
+
 			// Guarda los atributos del bloque
 			attributeBytes.add( new Integer( pantalla.getAttributePixel( i * 8, j * 8) ) );
 
     		indGrafico++;
-    		
+
     	}
 
     	if ( tipo == SPRITES_ZXB ) {
@@ -1088,14 +1088,14 @@ public class Colorator
     	else if ( tipo == SPRITES_ARDUINO ) {
     		// Nada que hacer
     	}
-    	
+
     	setBarraTexto( "Done exporting 1x1 graphics." );
     }
 
     public void generarTextoZXB1x1_antigua( File file, int numGraficos, ArrayList<Integer> bitmapBytes, ArrayList<Integer> attributeBytes ) {
 
     	// Por cada grafico hay 8 bytes de bitmap y 1 de atributos
-    	
+
         StringBuffer strBuf = new StringBuffer();
 
         strBuf.append( "\n\n#define NUM_GRAPHICS " + numGraficos + "\n" );
@@ -1106,7 +1106,7 @@ public class Colorator
         */
 
         strBuf.append( "static unsigned char graphics[] = {\n" );
-        
+
         for ( int i = 0; i < numGraficos; i++ ) {
         	strBuf.append( "\t" );
         	for ( int j = 0; j < 8; j++ ) {
@@ -1119,7 +1119,7 @@ public class Colorator
         }
 
         strBuf.append( "};\n" );
-        
+
         if ( attributeBytes != null ) {
 	        strBuf.append( "\ndim attributes( 0 to NUM_GRAPHICS -1 ) as ubyte => _\n{ _\n\t" );
 	        int numBloques = numGraficos * 1;
@@ -1197,7 +1197,7 @@ public class Colorator
     	}
 
     	ArrayList<Integer> listaBytes = new ArrayList<Integer>();
-    	
+
     	int x0 = rect.x;
     	int x1 = x0 + rect.width - 1;
     	int y0 = rect.y;
@@ -1220,21 +1220,21 @@ public class Colorator
     			// Bucle por las filas del bloque, generando un byte por fila
     			for ( int fila = 0; fila < 8; fila++ ) {
 
-	    			int pj = bi * 8 + fila;
+	    			int pj = bj * 8 + fila;
 
 	    	    	int valorFila = 0;
 	    	    	int valorPixel = 128;
 
 	    			// Bucle para los 8 pixels de la fila
 	    			for ( int col = 0; col < 8; col++ ) {
-	    				int pi = bj * 8 + col;
-	
+	    				int pi = bi * 8 + col;
+
 	    				if ( pantalla.getBitmap( pj, pi ) ) {
 	    					valorFila += valorPixel;
 	    				}
 	    				valorPixel >>= 1;
 	    			}
-	    			
+
 	    			// Guarda el byte generado
 	    			listaBytes.add( new Integer( valorFila ) );
     			}
@@ -1248,13 +1248,13 @@ public class Colorator
         if ( pantallaEditada == false ) {
             return true;
         }
-        
+
         int result = JOptionPane.showConfirmDialog(panelToolbar,
                                                    "There are unsaved changes. Continue?",
                                                    "Confirm",
                                                    JOptionPane.YES_NO_OPTION,
                                                    JOptionPane.WARNING_MESSAGE);
-    
+
         if (result == JOptionPane.YES_OPTION) {
             return true;
         }
@@ -1262,7 +1262,7 @@ public class Colorator
     }
 
 	public void seleccionarNada() {
-		
+
 		newActionUndo();
 
 		pantalla.seleccion.borrarTodaSeleccion();
