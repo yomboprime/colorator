@@ -1214,8 +1214,8 @@ public class Colorator
     	int numBloques = numBloquesX * numBloquesY;
 
     	// Bucle por los bloques seleccionados
-		for ( int bi = x0; bi <= x1; bi++ ) {
-			for ( int bj = y0; bj <= y1; bj++ ) {
+		for ( int bj = y0; bj <= y1; bj++ ) {
+			for ( int bi = x0; bi <= x1; bi++ ) {
 
     			// Bucle por las filas del bloque, generando un byte por fila
     			for ( int fila = 0; fila < 8; fila++ ) {
@@ -1229,7 +1229,7 @@ public class Colorator
 	    			for ( int col = 0; col < 8; col++ ) {
 	    				int pi = bi * 8 + col;
 
-	    				if ( pantalla.getBitmap( pj, pi ) ) {
+	    				if ( pantalla.getBitmap( pi, pj ) ) {
 	    					valorFila += valorPixel;
 	    				}
 	    				valorPixel >>= 1;
