@@ -1167,6 +1167,13 @@ public class Colorator
         	}
         }
 
+        if ( attributeBytes != null ) {
+	        for ( int i = 0; i < numGraficos; i++ ) {
+	        	strBuf.append( Integer.toHexString( attributeBytes.get( i ) ) );
+	            strBuf.append( "\n" );
+	        }
+        }
+
         // Guarda el fichero
         BufferedWriter output = null;
         try {
@@ -1197,6 +1204,7 @@ public class Colorator
     	}
 
     	ArrayList<Integer> listaBytes = new ArrayList<Integer>();
+    	ArrayList<Integer> attributeBytes = new ArrayList<Integer>();
 
     	int x0 = rect.x;
     	int x1 = x0 + rect.width - 1;
@@ -1238,10 +1246,15 @@ public class Colorator
 	    			// Guarda el byte generado
 	    			listaBytes.add( new Integer( valorFila ) );
     			}
+    			
+    			// Guarda los atributos del bloque
+    			attributeBytes.add( new Integer( pantalla.getAttributePixel( bi * 8, bj * 8) ) );
+
     		}
     	}
 
-    	generarTextoZXB1x1( file, numBloques, listaBytes, null );
+    	generarTextoZXB1x1( file, numBloques, listaBytes, attributeBytes );
+
     }
 
     public boolean confirmUnsavedChangesDiscard() {
